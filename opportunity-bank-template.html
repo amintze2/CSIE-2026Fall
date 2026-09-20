@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[Class Name] -- Class Opportunity Bank</title>
+<title>Computer Science Innovation and Entrepreneurship EN.660.410.01.FA26 -- Class Opportunity Bank</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&family=JetBrains+Mono:wght@400;500&display=swap');
   :root {
@@ -41,6 +41,11 @@
   th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray); padding: 8px 10px; border-bottom: 2px solid var(--black); background: var(--warm); }
   td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
   tr:hover td { background: var(--warm); }
+  th.sortable { cursor: pointer; user-select: none; }
+  th.sortable:hover { color: var(--black); }
+  th.sortable::after { content: ''; display: inline-block; width: 10px; }
+  th.sort-asc::after { content: '▲'; font-size: 8px; margin-left: 4px; }
+  th.sort-desc::after { content: '▼'; font-size: 8px; margin-left: 4px; }
 
   .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--red); margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--red); }
 
@@ -77,18 +82,18 @@
 
 <div class="header">
   <div>
-    <h1>[Class Name] -- Class Opportunity Bank</h1>
-    <div class="subtitle">[One-line description of what this page tracks]</div>
+    <h1>Computer Science Innovation and Entrepreneurship EN.660.410.01.FA26 -- Class Opportunity Bank</h1>
+    <div class="subtitle">A living record of every opportunity the class has explored</div>
   </div>
   <div class="meta">
-    <strong>[Term / Year]</strong> -- Week [N] of [Total]<br>
-    [N] students -- [N] opportunities<br>
-    Updated [Day, Time]
+    <strong>Fall 2026</strong> -- Week 3<br>
+    17 students -- 12 opportunities<br>
+    Updated Sep 20, 2026
   </div>
 </div>
 
 <div class="info-box">
-  [Explain what this page is for and how the class should use it.]
+  This is a living record of every opportunity the class has explored. Use it to find connections, see what others discovered in domains you haven't explored yet, and identify ideas worth pursuing as you build your portfolio. The opportunity bank is a starting point, not a constraint -- some of the best projects come from ideas that have been percolating in the back of your mind all semester.
 </div>
 
 <div class="tabs">
@@ -105,17 +110,33 @@
 <div id="opportunities" class="tab-content active">
 
 <div class="stats">
-  <div class="stat"><div class="stat-value blue">[N]</div><div class="stat-label">Total Opportunities</div></div>
-  <div class="stat"><div class="stat-value green">[N]</div><div class="stat-label">Domains Explored</div></div>
-  <div class="stat"><div class="stat-value">[N]</div><div class="stat-label">Contributors</div></div>
+  <div class="stat"><div class="stat-value blue">12</div><div class="stat-label">Total Opportunities</div></div>
+  <div class="stat"><div class="stat-value green">4</div><div class="stat-label">Domains Explored</div></div>
+  <div class="stat"><div class="stat-value">14</div><div class="stat-label">Contributors</div></div>
   <div class="stat"><div class="stat-value red">[N]</div><div class="stat-label">Domains Remaining</div></div>
 </div>
 
-<table>
+<table id="opportunities-table">
   <tbody>
-    <tr><th>Opportunity</th><th>Found By</th><th>Domain</th><th>Week</th><th>Cross-Domain Link</th></tr>
-    <tr><td>[Opportunity description]</td><td>[Name]</td><td><span class="domain-tag">[Domain]</span></td><td>[N]</td><td><span class="domain-tag">[Domain]</span> Wk[N]: [note]</td></tr>
-    <tr><td>[Opportunity description]</td><td>[Name]</td><td><span class="domain-tag">[Domain]</span></td><td>[N]</td><td>--</td></tr>
+    <tr>
+      <th class="sortable" onclick="sortTable(this.closest('table'), 0)">Opportunity</th>
+      <th class="sortable" onclick="sortTable(this.closest('table'), 1)">Found By</th>
+      <th class="sortable" onclick="sortTable(this.closest('table'), 2)">Domain</th>
+      <th class="sortable" onclick="sortTable(this.closest('table'), 3)">Week</th>
+      <th class="sortable" onclick="sortTable(this.closest('table'), 4)">Cross-Domain Link</th>
+    </tr>
+    <tr><td>Licensed, attorney-supervised AI defense service for mass consumer debt and eviction cases</td><td>Owen Bartlett</td><td><span class="domain-tag">Legal</span></td><td>1</td><td>--</td></tr>
+    <tr><td>AI-hallucination verified-filing certification sold to legal malpractice insurers</td><td>Owen Bartlett</td><td><span class="domain-tag">Legal</span></td><td>1</td><td>--</td></tr>
+    <tr><td>AI-driven pretrial reminder and needs-triage service replacing commercial bail bonds</td><td>Owen Bartlett</td><td><span class="domain-tag">Legal</span></td><td>1</td><td>--</td></tr>
+    <tr><td>Standardized real-time data feed letting small destinations and tour operators make themselves "readable" to AI trip-planning assistants</td><td>Sylvia, Steven, Flora, Yash</td><td><span class="domain-tag">Travel</span></td><td>1</td><td>--</td></tr>
+    <tr><td>AI trip-planning tool redesigned as a social feed, with shareable and collaborative group itineraries</td><td>Sylvia, Steven, Flora, Yash</td><td><span class="domain-tag">Travel</span></td><td>1</td><td>--</td></tr>
+    <tr><td>Cross-carrier flexible rebooking layer that pre-purchases refundable seats to bypass single-airline lock-in during disruptions</td><td>Sylvia, Steven, Flora, Yash</td><td><span class="domain-tag">Travel</span></td><td>1</td><td>--</td></tr>
+    <tr><td>Mesh network of cheap radar units and interceptor drones, fused by targeting software, to counter cheap attack drones at a fraction of missile-interceptor cost</td><td>Group 3 (Sahana, Kerry, Michael, Penn, Evan)</td><td><span class="domain-tag">Defense and National Security</span></td><td>1</td><td>--</td></tr>
+    <tr><td>Digital-twin ICS cyber range that turns captured shipboard PCAP data into virtual device actors, letting OT security scanners be validated without physical ship access</td><td>Group 3 (Sahana, Kerry, Michael, Penn, Evan)</td><td><span class="domain-tag">Defense and National Security</span></td><td>1</td><td>--</td></tr>
+    <tr><td>Real-time scene-to-spatial-audio translation conveying direction and intensity instead of a spoken description, for blind and low-vision users</td><td>Jingchen Jiang, Kendall Frederick, Sissi Lai, Sophia Mai</td><td><span class="domain-tag">Accessibility and Assistive Technology</span></td><td>1</td><td>--</td></tr>
+    <tr><td>Real-time conversational captioning delivered as lightweight, timely, location-aware signals instead of lagging line-by-line captions, for deaf and hard-of-hearing users</td><td>Jingchen Jiang, Kendall Frederick, Sissi Lai, Sophia Mai</td><td><span class="domain-tag">Accessibility and Assistive Technology</span></td><td>1</td><td>--</td></tr>
+    <tr><td>Tremor- and reach-tolerant gesture/switch input that turns partial motion into real-time commands for kiosks and self-checkout</td><td>Jingchen Jiang, Kendall Frederick, Sissi Lai, Sophia Mai</td><td><span class="domain-tag">Accessibility and Assistive Technology</span></td><td>1</td><td>--</td></tr>
+    <tr><td>Fast-response AAC channel rendering conversational acknowledgments and interruptions at real conversational speed, gated by a confidence layer on when to commit</td><td>Jingchen Jiang, Kendall Frederick, Sissi Lai, Sophia Mai</td><td><span class="domain-tag">Accessibility and Assistive Technology</span></td><td>1</td><td>--</td></tr>
     <tr><td colspan="5" style="text-align: center; color: var(--gray); font-style: italic;">[... add more rows as opportunities come in]</td></tr>
   </tbody>
 </table>
@@ -130,12 +151,23 @@
 <div class="section-label">Opportunities by Domain</div>
 
 <div class="card" style="margin-bottom: 20px;">
-  <h4>[Domain Name] <span style="font-size: 12px; color: var(--gray); font-weight: 400; margin-left: 8px;">Week [N] -- [N] opportunities from [N] students</span></h4>
-  <p>[Sub-theme] ([N] contributors) -- [Sub-theme] ([N]) -- [Sub-theme] ([N])</p>
+  <h4>Legal <span style="font-size: 12px; color: var(--gray); font-weight: 400; margin-left: 8px;">Week 1 -- 3 opportunities from 1 student</span></h4>
+  <p>Consumer debt & eviction defense (1 contributor) -- Malpractice-insurer filing certification (1) -- Pretrial triage replacing bail bonds (1)</p>
 </div>
 
-<div class="card" style="margin-bottom: 20px; border-color: var(--light-gray); color: var(--gray);">
-  <h4 style="color: var(--gray);">[Upcoming Domain] <span style="font-size: 12px; font-weight: 400; margin-left: 8px;">Week [N] -- upcoming</span></h4>
+<div class="card" style="margin-bottom: 20px;">
+  <h4>Travel <span style="font-size: 12px; color: var(--gray); font-weight: 400; margin-left: 8px;">Week 1 -- 3 opportunities from 4 students</span></h4>
+  <p>AI trip-planner readability layer (4 contributors) -- Social/collaborative trip planning (4) -- Cross-carrier flexible rebooking (4)</p>
+</div>
+
+<div class="card" style="margin-bottom: 20px;">
+  <h4>Defense and National Security <span style="font-size: 12px; color: var(--gray); font-weight: 400; margin-left: 8px;">Week 1 -- 2 opportunities from 5 students</span></h4>
+  <p>Counter-drone mesh network (5 contributors) -- Digital-twin ICS cyber range (5)</p>
+</div>
+
+<div class="card" style="margin-bottom: 20px;">
+  <h4>Accessibility and Assistive Technology <span style="font-size: 12px; color: var(--gray); font-weight: 400; margin-left: 8px;">Week 1 -- 4 opportunities from 4 students</span></h4>
+  <p>Spatial-audio scene translation (4 contributors) -- Real-time conversational captioning (4) -- Tremor-tolerant gesture input (4) -- Confidence-gated AAC channel (4)</p>
 </div>
 
 </div>
@@ -223,8 +255,8 @@
 </div>
 
 <footer>
-  <span style="font-weight: 700; color: var(--gray);">[Institution Name]</span>
-  <span>[Class Name] -- Class Opportunity Bank -- [Term / Year]</span>
+  <span style="font-weight: 700; color: var(--gray);">Johns Hopkins University</span>
+  <span>Computer Science Innovation and Entrepreneurship EN.660.410.01.FA26 -- Class Opportunity Bank -- Fall 2026</span>
 </footer>
 
 </div>
@@ -235,6 +267,37 @@ function switchTab(id) {
   document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   document.querySelector('[onclick="switchTab(\'' + id + '\')"]').classList.add('active');
+}
+
+function sortTable(table, colIndex) {
+  const tbody = table.tBodies[0];
+  const headerRow = tbody.rows[0];
+  const allRows = Array.from(tbody.rows).slice(1);
+  // The "add more rows as opportunities come in" row spans all columns -- keep it pinned to the bottom.
+  const placeholderRow = allRows.find(r => r.cells.length === 1 && r.cells[0].hasAttribute('colspan'));
+  const dataRows = allRows.filter(r => r !== placeholderRow);
+
+  const newDir = (table.dataset.sortCol == colIndex && table.dataset.sortDir === 'asc') ? 'desc' : 'asc';
+
+  dataRows.sort((a, b) => {
+    const aText = a.cells[colIndex].innerText.trim();
+    const bText = b.cells[colIndex].innerText.trim();
+    const aNum = Number(aText), bNum = Number(bText);
+    const bothNumeric = aText !== '' && bText !== '' && !isNaN(aNum) && !isNaN(bNum);
+    const cmp = bothNumeric ? (aNum - bNum) : aText.toLowerCase().localeCompare(bText.toLowerCase());
+    return newDir === 'asc' ? cmp : -cmp;
+  });
+
+  dataRows.forEach(r => tbody.appendChild(r));
+  if (placeholderRow) tbody.appendChild(placeholderRow);
+
+  table.dataset.sortCol = colIndex;
+  table.dataset.sortDir = newDir;
+
+  Array.from(headerRow.cells).forEach((th, i) => {
+    th.classList.remove('sort-asc', 'sort-desc');
+    if (i === colIndex) th.classList.add(newDir === 'asc' ? 'sort-asc' : 'sort-desc');
+  });
 }
 </script>
 
