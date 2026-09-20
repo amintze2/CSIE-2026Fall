@@ -174,27 +174,69 @@
 <div id="clusters" class="tab-content">
 
 <div class="section-label">Opportunity Clusters</div>
-<p style="font-size: 14px; color: var(--gray); margin-bottom: 20px;">[Explain what a cluster means for this class.]</p>
+<p style="font-size: 14px; color: var(--gray); margin-bottom: 20px;">A cluster groups opportunities from different domains that turn out to run on the same underlying mechanism, even though no one set out to look for the overlap. That repetition is a signal: if the same structural problem shows up twice on its own, it's probably bigger than either domain.</p>
 
 <div class="info-box" style="margin-bottom: 24px;">
   <strong>How to read the signals:</strong><br>
-  <span class="signal strong">Strong Signal</span> = [criteria]<br>
-  <span class="signal emerging">Emerging</span> = [criteria]<br>
-  <span class="signal early">Early</span> = [criteria]
+  <span class="signal strong">Strong Signal</span> = 2+ domains, most of the class's current contributors touch it<br>
+  <span class="signal emerging">Emerging</span> = 2 domains, a real mechanism match but thinner contributor overlap<br>
+  <span class="signal early">Early</span> = the mechanism shows up in only 1 domain so far -- watching for a second
 </div>
 
 <div class="card highlight">
-  <h4><span class="signal strong">Strong Signal</span> [Cluster Name]</h4>
-  <p><strong>[N] people, [N] domains</strong></p>
-  <p>[Description of what these people independently found and why it's significant.]</p>
-  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Domains: <span class="domain-tag">[Domain]</span> <span class="domain-tag">[Domain]</span></p>
+  <h4><span class="signal strong">Strong Signal</span> Cheap Distributed Sensing Beats Expensive Centralized Systems</h4>
+  <p><strong>9 people, 2 domains</strong></p>
+  <p>Travel's "readability" layer and Defense's counter-drone mesh are the same move: replace one expensive, centralized system (a travel agent's proprietary index; a missile-interceptor battery) with a mesh of cheap, distributed nodes that gets fused into a single picture by software. Independently, both groups landed on "many cheap sensors + smart fusion beats one expensive asset."</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Domains: <span class="domain-tag">Travel</span> <span class="domain-tag">Defense and National Security</span></p>
+</div>
+
+<div class="card highlight">
+  <h4><span class="signal strong">Strong Signal</span> High-Stakes Real-Time Communication for People Who Can't Wait</h4>
+  <p><strong>5 people, 2 domains</strong></p>
+  <p>Accessibility's confidence-gated AAC and captioning work solves the same problem as Legal's pretrial reminder/triage service: someone with less power in a fast-moving, high-stakes interaction needs information delivered at real conversational speed, or the consequence is irreversible (a missed court date; a missed conversational beat).</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Domains: <span class="domain-tag">Accessibility and Assistive Technology</span> <span class="domain-tag">Legal</span></p>
 </div>
 
 <div class="card">
-  <h4><span class="signal early">Early</span> [Cluster Name]</h4>
-  <p><strong>[N] people, [N] domain(s)</strong></p>
-  <p>[Description.]</p>
-  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Domains: <span class="domain-tag">[Domain]</span></p>
+  <h4><span class="signal emerging">Emerging</span> Bypassing the Gatekeeper That Traps the Powerless</h4>
+  <p><strong>5 people, 2 domains</strong></p>
+  <p>Legal's bail-bonds/eviction defense work and Travel's cross-carrier rebooking layer both target a single point of lock-in that a person with less leverage gets stuck behind -- one airline, one bond, one path through the system -- and both solutions are "give the individual a way around the gatekeeper."</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Domains: <span class="domain-tag">Legal</span> <span class="domain-tag">Travel</span></p>
+</div>
+
+<div class="card">
+  <h4><span class="signal early">Early</span> Verify-Before-Deploy, Sold as Insurance</h4>
+  <p><strong>6 people, 2 domains</strong></p>
+  <p>Legal's AI-hallucination-verified filing certification and Defense's digital-twin cyber range are both "validate the AI output in a simulated environment before it touches the real, high-stakes system, then sell that validation as risk transfer to whoever's underwriting the outcome" (a malpractice insurer; a procurement office). Only one contributor per domain so far -- watch for more.</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Domains: <span class="domain-tag">Legal</span> <span class="domain-tag">Defense and National Security</span></p>
+</div>
+
+<div class="card highlight">
+  <h4><span class="signal strong">Strong Signal</span> Confidence-Gated "When Do I Commit" Decision Layers</h4>
+  <p><strong>10 people, 3 domains</strong></p>
+  <p>This is the same mechanism as the communication cluster above, but it shows up a third time once you widen the lens from "communication" to "any irreversible action." Accessibility's AAC channel is gated by a confidence layer on when to commit an utterance. Defense's mesh fuses radar and interceptor data through targeting software that has to decide when it's confident enough to commit an intercept. Legal's filing service has to decide when an AI-drafted filing is verified enough to actually submit. Three domains independently built the same "don't act until confidence crosses a threshold" layer around three very different irreversible actions.</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Domains: <span class="domain-tag">Accessibility and Assistive Technology</span> <span class="domain-tag">Defense and National Security</span> <span class="domain-tag">Legal</span></p>
+</div>
+
+<div class="card">
+  <h4><span class="signal emerging">Emerging</span> Making an Opaque System Remotely Legible</h4>
+  <p><strong>10 people, 3 domains</strong></p>
+  <p>Travel's readability layer makes small destinations legible to an AI that couldn't otherwise see them. Legal's verified-filing certification makes AI-drafted legal reasoning legible (and therefore acceptable) to an insurer who couldn't otherwise trust it. Defense's digital twin makes a ship's physical OT systems legible to a security scanner that can't get physical access. All three turn something a machine can't directly perceive -- a place, a judgment call, a piece of hardware -- into something it can query.</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Domains: <span class="domain-tag">Travel</span> <span class="domain-tag">Legal</span> <span class="domain-tag">Defense and National Security</span></p>
+</div>
+
+<div class="card">
+  <h4><span class="signal early">Early</span> One-Size-Fits-All Personalization Breaks Down at the Edges</h4>
+  <p><strong>Class-question signal, 2 domains</strong></p>
+  <p>Sichen's Travel questions kept pushing on whether AI dynamic pricing gives everyone the "same plan," and whether each person effectively needs their own unique AI. That's the same tension Accessibility is already solving for out of necessity: a generalist interface breaks down for a disabled user the same way a generalist travel plan breaks down once pricing/recommendations get personalized. Accessibility's tremor-tolerant input and AAC work is the edge case Travel hasn't hit yet -- watch for a Travel opportunity that explicitly builds for it.</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Domains: <span class="domain-tag">Travel</span> <span class="domain-tag">Accessibility and Assistive Technology</span></p>
+</div>
+
+<div class="card">
+  <h4><span class="signal early">Early</span> Partial, Noisy, Real-Time Signal Interpretation Under Constraint</h4>
+  <p><strong>9 people, 2 domains</strong></p>
+  <p>Accessibility's tremor- and reach-tolerant gesture/switch input turns partial, noisy motion into a confident real-time command for someone who can't produce a clean signal. Defense's targeting/fusion software has the same job for a different kind of noisy, partial, time-pressured input: a battlefield sensor feed. Neither group is currently talking to the other, but the underlying interface problem -- extract a confident command from a degraded signal, fast -- is identical.</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Domains: <span class="domain-tag">Accessibility and Assistive Technology</span> <span class="domain-tag">Defense and National Security</span></p>
 </div>
 
 </div>
@@ -205,28 +247,72 @@
 <div id="crossdomain" class="tab-content">
 
 <div class="section-label">Cross-Domain Class Opportunities</div>
-<p style="font-size: 14px; color: var(--gray); margin-bottom: 20px;">[Explain what a cross-domain connection means and why it's worth surfacing.]</p>
+<p style="font-size: 14px; color: var(--gray); margin-bottom: 20px;">These aren't opportunities anyone in the class has pitched yet -- they're new opportunities built by fusing the underlying mechanism from one domain's opportunity with the unmet need in another. Each one names the two source opportunities it was built from. Treat them as starting points to validate, not finished ideas.</p>
 
 <div class="card highlight">
-  <h4>[Connection Title]</h4>
+  <h4>Distributed Ground-Truth Mesh for Conflict/Disaster-Zone Travel</h4>
   <div class="connection">
-    <span><span class="domain-tag">[Domain]</span> [short phrase]</span>
+    <span><span class="domain-tag">Travel</span> AI-readability layer for small destinations</span>
     <span class="arrow">&lt;--&gt;</span>
-    <span><span class="domain-tag">[Domain]</span> [short phrase]</span>
+    <span><span class="domain-tag">Defense and National Security</span> cheap radar/interceptor mesh</span>
   </div>
-  <p>[Explain the shared underlying problem across domains.]</p>
-  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Contributors: [Name] ([domain]), [Name] ([domain])</p>
+  <p>Travel's readability layer assumes the underlying ground truth (prices, availability) is stable and just needs to be made legible to AI. In unstable regions it isn't stable -- conditions change hour to hour. Borrow Defense's move (many cheap distributed sensors, fused by software, replacing one expensive centralized system) and apply it to safety data instead of radar: a mesh of low-cost, locally-placed reporting nodes that gives AI trip-planners and travelers real-time ground truth on conflict, disaster, or unrest zones that no single "readable" feed could keep current.</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Built from: Sylvia, Steven, Flora, Yash (Travel), Group 3 -- Sahana, Kerry, Michael, Penn, Evan (Defense and National Security)</p>
+</div>
+
+<div class="card highlight">
+  <h4>Accessible Crisis &amp; Court Navigator</h4>
+  <div class="connection">
+    <span><span class="domain-tag">Accessibility and Assistive Technology</span> confidence-gated AAC / real-time captioning</span>
+    <span class="arrow">&lt;--&gt;</span>
+    <span><span class="domain-tag">Legal</span> pretrial reminder and needs-triage</span>
+  </div>
+  <p>Owen's pretrial triage service reminds people of court dates and routes them to what they need instead of a bail bond. But a deaf, hard-of-hearing, or communication-disabled defendant is disproportionately likely to miss exactly this kind of time-critical, high-stakes interaction in the first place. Wire the AAC/captioning group's confidence-gated, real-time-speed communication channel directly into the triage service's court-facing interactions -- so the accessibility layer isn't a generic add-on, it's what makes the triage service actually reach the population most likely to fall through the gap it was built to close.</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Built from: Jingchen Jiang, Kendall Frederick, Sissi Lai, Sophia Mai (Accessibility and Assistive Technology), Owen Bartlett (Legal)</p>
 </div>
 
 <div class="card">
-  <h4>[Predicted Connection Title]</h4>
+  <h4>Travel-Disruption Rights Autofiler</h4>
   <div class="connection">
-    <span><span class="domain-tag">[Domain]</span> [short phrase]</span>
+    <span><span class="domain-tag">Legal</span> AI-hallucination-verified filing certification</span>
     <span class="arrow">&lt;--&gt;</span>
-    <span style="color: var(--gray);">[Upcoming Domain] (Week [N]): [short phrase]</span>
+    <span><span class="domain-tag">Travel</span> cross-carrier rebooking during disruption</span>
   </div>
-  <p>[Explain the anticipated connection.]</p>
-  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Current contributors: [Name] ([domain]). Watch for Week [N] connections.</p>
+  <p>The moment the rebooking layer detects a disruption (cancellation, denied boarding, a carrier-caused delay), that event is very often also a compensation-eligible legal claim (DOT/EU261-style) that almost no traveler actually files, because doing so requires legal knowledge they don't have and time they don't want to spend. Attach a verified-filing service, built the same way as the malpractice-insurer certification (AI drafts the claim, a verification layer checks it against the actual rule and the rebooking event data before anything is submitted), so the rebooking product doesn't just get you rebooked -- it auto-files what you're owed.</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Built from: Owen Bartlett (Legal), Sylvia, Steven, Flora, Yash (Travel)</p>
+</div>
+
+<div class="card">
+  <h4>Procurement-Grade Verified-Simulation Certification</h4>
+  <div class="connection">
+    <span><span class="domain-tag">Legal</span> AI-hallucination-verified filing certification</span>
+    <span class="arrow">&lt;--&gt;</span>
+    <span><span class="domain-tag">Defense and National Security</span> digital-twin ICS cyber range</span>
+  </div>
+  <p>This week's Defense questions kept circling the same pain point: procurement moves slower than the battlefield because no one can cheaply prove an autonomous system is safe before the RFP. Legal's insurers already accept an AI-verification layer in place of manual review for filings. Package the digital-twin cyber range the same way -- as a pre-certification product an autonomy vendor buys before bidding, the way a law firm buys hallucination-verification before it sends a filing -- so contracting officers can accept "independently verified in simulation" instead of re-deriving trust from scratch on every bid.</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Built from: Owen Bartlett (Legal), Group 3 -- Sahana, Kerry, Michael, Penn, Evan (Defense and National Security)</p>
+</div>
+
+<div class="card">
+  <h4>Mixed-Ability Collaborative Trip Planning</h4>
+  <div class="connection">
+    <span><span class="domain-tag">Travel</span> social/collaborative group itineraries</span>
+    <span class="arrow">&lt;--&gt;</span>
+    <span style="color: var(--gray);">Accessibility and Assistive Technology: spatial audio, gesture input</span>
+  </div>
+  <p>No one has pitched this pairing yet, but it's an obvious gap: Travel's collaborative-itinerary tool assumes every group member interacts with the plan the same way. Feed the Accessibility group's spatial-audio scene translation and tremor-tolerant gesture input in as first-class collaborative inputs -- a blind or motor-impaired traveler doesn't get a bolted-on accessibility mode, they get an equal vote in a shared itinerary that already speaks their input/output format.</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Current contributors: Sylvia, Steven, Flora, Yash (Travel); Jingchen Jiang, Kendall Frederick, Sissi Lai, Sophia Mai (Accessibility and Assistive Technology). Watch for someone to explicitly claim this connection.</p>
+</div>
+
+<div class="card">
+  <h4>Degraded-Input Operator Consoles</h4>
+  <div class="connection">
+    <span><span class="domain-tag">Defense and National Security</span> digital-twin cyber range</span>
+    <span class="arrow">&lt;--&gt;</span>
+    <span style="color: var(--gray);">Accessibility and Assistive Technology: tremor-tolerant gesture/switch input</span>
+  </div>
+  <p>Also unclaimed. A soldier operating a drone or targeting console under stress, injury, cold, or in bulky gloves has functionally the same input problem as the tremor- and reach-tolerant kiosk work: partial, noisy motion that still needs to become a confident, real-time command. Field the accessibility group's input-tolerance research as combat-console UX, validated in the same digital-twin cyber range before it's trusted in the real system.</p>
+  <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Current contributors: Group 3 -- Sahana, Kerry, Michael, Penn, Evan (Defense and National Security); Jingchen Jiang, Kendall Frederick, Sissi Lai, Sophia Mai (Accessibility and Assistive Technology). Watch for someone to explicitly claim this connection.</p>
 </div>
 
 </div>
