@@ -62,10 +62,6 @@
 
   .domain-tag { display: inline-block; font-size: 11px; font-weight: 600; color: var(--green); background: #F0FFF4; border: 1px solid #D1FAE5; padding: 2px 8px; border-radius: 2px; margin: 1px 2px; }
 
-  .status { display: inline-block; padding: 3px 10px; font-size: 11px; font-weight: 700; border-radius: 3px; }
-  .status.open { background: #FEF3C7; color: #92400E; }
-  .status.answered { background: #D1FAE5; color: #065F46; }
-
   .info-box { background: var(--warm); border-left: 4px solid var(--blue); padding: 14px 18px; margin: 16px 0; font-size: 13px; }
 
   .connection { background: var(--warm); border: 1px solid var(--border); padding: 12px 16px; margin: 8px 0; font-size: 13px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -241,16 +237,66 @@
 <div id="questions" class="tab-content">
 
 <div class="section-label">Class Questions</div>
-<p style="font-size: 14px; color: var(--gray); margin-bottom: 20px;">[Explain what belongs here -- e.g. open questions raised in class or office hours that the whole class benefits from seeing, and how to submit a new one.]</p>
+<p style="font-size: 14px; color: var(--gray); margin-bottom: 20px;">[Explain what belongs here -- e.g. open questions raised in class or office hours that the whole class benefits from seeing, and how to submit a new one.] Questions are grouped by the opportunity they relate to, so it's easy to see everything asked about a given idea in one place.</p>
 
-<table>
-  <tbody>
-    <tr><th>Question</th><th>Asked By</th><th>Week</th><th>Status</th><th>Answer / Notes</th></tr>
-    <tr><td>[Question text]</td><td>[Name]</td><td>[N]</td><td><span class="status answered">Answered</span></td><td>[Answer or link to notes]</td></tr>
-    <tr><td>[Question text]</td><td>[Name]</td><td>[N]</td><td><span class="status open">Open</span></td><td>--</td></tr>
-    <tr><td colspan="5" style="text-align: center; color: var(--gray); font-style: italic;">[... add more rows as questions come in]</td></tr>
-  </tbody>
-</table>
+<!-- ─────────────────────────────────────────── -->
+<!-- Group 1: questions tied to a specific opportunity -->
+<!-- Duplicate this .card block per opportunity, sorted in the order that makes sense for your class (e.g. alphabetically, or by most-discussed first). -->
+<!-- ─────────────────────────────────────────── -->
+<div class="card" style="margin-bottom: 20px;">
+  <h4>Defense and National Security</h4>
+  <table>
+    <tbody>
+      <tr><th>Question</th><th>Asked By</th><th>Week</th><th>Answer / Notes</th></tr>
+      <tr><td>How realistic would it be to change the combat technology landscape when the current system is already fairly entrenched?</td><td>Flora Huang</td><td>1</td><td>--</td></tr>
+      <tr><td>What sorts of tasks are being done on the shipboards, and why does it take so long?</td><td>Flora Huang</td><td>1</td><td>--</td></tr>
+      <tr><td>How much of the drone spend is influenced by the fact that Ukraine is actively at war?</td><td>Sylvia Yam</td><td>1</td><td>--</td></tr>
+      <tr><td>How do you make sure your counter-drones stay up to date with the newest technology? Otherwise they may become useless overnight if there's a technological breakthrough.</td><td>Sylvia Yam</td><td>1</td><td>--</td></tr>
+      <tr><td>Does the trend appear to be moving towards cheaper drones/tech, or more advanced drones/tech?</td><td>Owen Bartlett</td><td>1</td><td>--</td></tr>
+      <tr><td>A lot of those issues with complex systems involve hardware issues -- how do we accurately simulate those things?</td><td>Owen Bartlett</td><td>1</td><td>--</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card" style="margin-bottom: 20px;">
+  <h4>Accessibility and Assistive Technology</h4>
+  <table>
+    <tbody>
+      <tr><th>Question</th><th>Asked By</th><th>Week</th><th>Answer / Notes</th></tr>
+      <tr><td>Is the problem that the technology is not developed enough, or that there's uneven access to assistive tech?</td><td>Flora Huang</td><td>1</td><td>--</td></tr>
+      <tr><td>What kind of information would you include in the multiple channels?</td><td>Flora Huang</td><td>1</td><td>--</td></tr>
+      <tr><td>How can that world modeling be standardized, or accommodate varying insurance policies/paradigms?</td><td>Michael Squeri</td><td>1</td><td>--</td></tr>
+      <tr><td>How can you merge so many different inputs together if someone can only hear?</td><td>Sylvia Yam</td><td>1</td><td>--</td></tr>
+      <tr><td>How do you plan on amplifying output (say, in somebody who's had a stroke)?</td><td>Sylvia Yam</td><td>1</td><td>--</td></tr>
+      <tr><td>Why can't subtitles just be 100% accurate? Rather than pushing for real-time accuracy, why not just tell the other person to wait for an accurate transcription?</td><td>Owen Bartlett</td><td>1</td><td>--</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card" style="margin-bottom: 20px;">
+  <h4>Travel</h4>
+  <table>
+    <tbody>
+      <tr><th>Question</th><th>Asked By</th><th>Week</th><th>Answer / Notes</th></tr>
+      <tr><td>You brought up carbon consciousness for travel -- how does that play out if governments require individuals to track their carbon credits/footprint?</td><td>Michael Squeri</td><td>1</td><td>--</td></tr>
+      <tr><td>What happens when no humans are involved in travel planning?</td><td>Owen Bartlett</td><td>1</td><td>--</td></tr>
+      <tr><td>Could airlines begin selling exclusive prices to AI companies?</td><td>Owen Bartlett</td><td>1</td><td>--</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─────────────────────────────────────────── -->
+<!-- Catch-all group for questions not tied to any single opportunity -->
+<!-- ─────────────────────────────────────────── -->
+<div class="card" style="margin-bottom: 20px; border-color: var(--light-gray);">
+  <h4 style="color: var(--gray);">General Questions</h4>
+  <table>
+    <tbody>
+      <tr><th>Question</th><th>Asked By</th><th>Week</th><th>Answer / Notes</th></tr>
+      <tr><td colspan="4" style="text-align: center; color: var(--gray); font-style: italic;">[... add rows here for questions that aren't about one specific opportunity]</td></tr>
+    </tbody>
+  </table>
+</div>
 
 </div>
 
