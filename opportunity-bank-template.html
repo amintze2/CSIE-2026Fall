@@ -57,6 +57,10 @@
 
   .domain-tag { display: inline-block; font-size: 11px; font-weight: 600; color: var(--green); background: #F0FFF4; border: 1px solid #D1FAE5; padding: 2px 8px; border-radius: 2px; margin: 1px 2px; }
 
+  .status { display: inline-block; padding: 3px 10px; font-size: 11px; font-weight: 700; border-radius: 3px; }
+  .status.open { background: #FEF3C7; color: #92400E; }
+  .status.answered { background: #D1FAE5; color: #065F46; }
+
   .info-box { background: var(--warm); border-left: 4px solid var(--blue); padding: 14px 18px; margin: 16px 0; font-size: 13px; }
 
   .connection { background: var(--warm); border: 1px solid var(--border); padding: 12px 16px; margin: 8px 0; font-size: 13px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -92,6 +96,7 @@
   <div class="tab" onclick="switchTab('domains')">By Domain</div>
   <div class="tab" onclick="switchTab('clusters')">Clusters</div>
   <div class="tab" onclick="switchTab('crossdomain')">Cross-Domain Class Opportunities</div>
+  <div class="tab" onclick="switchTab('questions')">Class Questions</div>
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
@@ -195,6 +200,25 @@
   <p>[Explain the anticipated connection.]</p>
   <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Current contributors: [Name] ([domain]). Watch for Week [N] connections.</p>
 </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TAB 5: CLASS QUESTIONS -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="questions" class="tab-content">
+
+<div class="section-label">Class Questions</div>
+<p style="font-size: 14px; color: var(--gray); margin-bottom: 20px;">[Explain what belongs here -- e.g. open questions raised in class or office hours that the whole class benefits from seeing, and how to submit a new one.]</p>
+
+<table>
+  <tbody>
+    <tr><th>Question</th><th>Asked By</th><th>Week</th><th>Status</th><th>Answer / Notes</th></tr>
+    <tr><td>[Question text]</td><td>[Name]</td><td>[N]</td><td><span class="status answered">Answered</span></td><td>[Answer or link to notes]</td></tr>
+    <tr><td>[Question text]</td><td>[Name]</td><td>[N]</td><td><span class="status open">Open</span></td><td>--</td></tr>
+    <tr><td colspan="5" style="text-align: center; color: var(--gray); font-style: italic;">[... add more rows as questions come in]</td></tr>
+  </tbody>
+</table>
 
 </div>
 
