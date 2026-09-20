@@ -41,6 +41,11 @@
   th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray); padding: 8px 10px; border-bottom: 2px solid var(--black); background: var(--warm); }
   td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
   tr:hover td { background: var(--warm); }
+  th.sortable { cursor: pointer; user-select: none; }
+  th.sortable:hover { color: var(--black); }
+  th.sortable::after { content: ''; display: inline-block; width: 10px; }
+  th.sort-asc::after { content: '▲'; font-size: 8px; margin-left: 4px; }
+  th.sort-desc::after { content: '▼'; font-size: 8px; margin-left: 4px; }
 
   .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--red); margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--red); }
 
@@ -105,15 +110,21 @@
 <div id="opportunities" class="tab-content active">
 
 <div class="stats">
-  <div class="stat"><div class="stat-value blue">[N]</div><div class="stat-label">Total Opportunities</div></div>
-  <div class="stat"><div class="stat-value green">[N]</div><div class="stat-label">Domains Explored</div></div>
-  <div class="stat"><div class="stat-value">[N]</div><div class="stat-label">Contributors</div></div>
+  <div class="stat"><div class="stat-value blue">12</div><div class="stat-label">Total Opportunities</div></div>
+  <div class="stat"><div class="stat-value green">4</div><div class="stat-label">Domains Explored</div></div>
+  <div class="stat"><div class="stat-value">14</div><div class="stat-label">Contributors</div></div>
   <div class="stat"><div class="stat-value red">[N]</div><div class="stat-label">Domains Remaining</div></div>
 </div>
 
-<table>
+<table id="opportunities-table">
   <tbody>
-    <tr><th>Opportunity</th><th>Found By</th><th>Domain</th><th>Week</th><th>Cross-Domain Link</th></tr>
+    <tr>
+      <th class="sortable" onclick="sortTable(this.closest('table'), 0)">Opportunity</th>
+      <th class="sortable" onclick="sortTable(this.closest('table'), 1)">Found By</th>
+      <th class="sortable" onclick="sortTable(this.closest('table'), 2)">Domain</th>
+      <th class="sortable" onclick="sortTable(this.closest('table'), 3)">Week</th>
+      <th class="sortable" onclick="sortTable(this.closest('table'), 4)">Cross-Domain Link</th>
+    </tr>
     <tr><td>Licensed, attorney-supervised AI defense service for mass consumer debt and eviction cases</td><td>Owen Bartlett</td><td><span class="domain-tag">Legal</span></td><td>1</td><td>--</td></tr>
     <tr><td>AI-hallucination verified-filing certification sold to legal malpractice insurers</td><td>Owen Bartlett</td><td><span class="domain-tag">Legal</span></td><td>1</td><td>--</td></tr>
     <tr><td>AI-driven pretrial reminder and needs-triage service replacing commercial bail bonds</td><td>Owen Bartlett</td><td><span class="domain-tag">Legal</span></td><td>1</td><td>--</td></tr>
@@ -245,6 +256,37 @@ function switchTab(id) {
   document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   document.querySelector('[onclick="switchTab(\'' + id + '\')"]').classList.add('active');
+}
+
+function sortTable(table, colIndex) {
+  const tbody = table.tBodies[0];
+  const headerRow = tbody.rows[0];
+  const allRows = Array.from(tbody.rows).slice(1);
+  // The "add more rows as opportunities come in" row spans all columns -- keep it pinned to the bottom.
+  const placeholderRow = allRows.find(r => r.cells.length === 1 && r.cells[0].hasAttribute('colspan'));
+  const dataRows = allRows.filter(r => r !== placeholderRow);
+
+  const newDir = (table.dataset.sortCol == colIndex && table.dataset.sortDir === 'asc') ? 'desc' : 'asc';
+
+  dataRows.sort((a, b) => {
+    const aText = a.cells[colIndex].innerText.trim();
+    const bText = b.cells[colIndex].innerText.trim();
+    const aNum = Number(aText), bNum = Number(bText);
+    const bothNumeric = aText !== '' && bText !== '' && !isNaN(aNum) && !isNaN(bNum);
+    const cmp = bothNumeric ? (aNum - bNum) : aText.toLowerCase().localeCompare(bText.toLowerCase());
+    return newDir === 'asc' ? cmp : -cmp;
+  });
+
+  dataRows.forEach(r => tbody.appendChild(r));
+  if (placeholderRow) tbody.appendChild(placeholderRow);
+
+  table.dataset.sortCol = colIndex;
+  table.dataset.sortDir = newDir;
+
+  Array.from(headerRow.cells).forEach((th, i) => {
+    th.classList.remove('sort-asc', 'sort-desc');
+    if (i === colIndex) th.classList.add(newDir === 'asc' ? 'sort-asc' : 'sort-desc');
+  });
 }
 </script>
 
