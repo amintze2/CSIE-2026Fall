@@ -459,14 +459,50 @@
 
 
 
-
----
-
-### Unattributed Submissions
-
-*(Corresponds to remaining roster members: Anton Dahbura, Jingchen Jiang, Steven Li, Anna Mintzer, Elysa Pulliam, Michael Squeri)*
+**Michael Squeri** 
 
 
+**Public Opinions on AI**
+
+  
+
+  
+
+1. You mentioned engineers, do you think many will be displaced permanently, temporarily, or not at all? Do you think any regulations or gov programs for engineers would be in place, especially if AI approval continues declining?
+    
+      
+    
+2. What problems do you foresee as a result of AI systems committing crimes w/o a clear entity to blame?
+    
+      
+    
+
+**Social Media Algorithms**
+
+  
+
+  
+
+1. Will social media, especially w.r.t. politics, have to change to protect elderly, young, and gullible viewers? Will it? Regulation?
+    
+      
+    
+2. Have you thought about the physical effects on our health?
+    
+      
+    
+
+**AI-Generated Media**
+
+  
+
+  
+
+1. How can we have some way to verify videos are real? (human-ids assoc. w/ taken videos?) if AI theoretically make indistinguishable videos?
+    
+      
+    
+2. How would infinite AI content affect social media?
 
 
 
