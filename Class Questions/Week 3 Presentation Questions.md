@@ -58,7 +58,7 @@ Headings are as the students wrote them. `[illegible]` marks handwriting the tra
 
 ---
 
-### Unsigned sheet
+### Unsigned sheet #1
 
 * **Surveillance**
   1. What is the end goal of predictions (i.e. will it ultimately lead to some sort of action?)
@@ -160,3 +160,42 @@ Headings are as the students wrote them. `[illegible]` marks handwriting the tra
 * **2. Agency under Surveillance #2**
   * Does it now come to ~~richer~~ neighborhoods with more power to pass legislation/change to protect themselves?
     * ↳ in my neighborhood, Santa Clara county, they already outlawed use of red light cameras → more $$ from taxpayers → more control on local policy?
+
+---
+
+### Michael Squeri
+
+* **Agency Under Surveillance**
+  * clarification: What is ALPR?
+  * challenge: $ per camera?
+    Why is this tech emerging now?
+* **Second Surveillance Pres.**
+  * clar: can you elaborate on prediction and innocent until guilty?
+  * chall: can't gov. have authority to use private data?
+
+---
+
+### Unsigned sheet #2
+
+~~[crossed out text]~~
+
+* **Agency under surveillance**
+  * Why would anyone opt-in for surveillance? How far in the 'absurd' can we push it to on the 'opt-in' axes?
+  * What specific goods/service can you develop from the gaps you have identified from the opportunities slide?
+* **Cybersecurity in the Age of AI Agents**
+  * Would AI companies ever be incentivised to report hostile activities from their own AI? Wouldn't it be even a conflict of interest?
+  * How to ensure it kill switch works? What if AI agent found a way to survive without human detection?
+
+---
+
+### Sichen Deng
+
+The sheet is titled "Questions Group 2" and then labels its sections Group 2 and Group 3. The first section is filed on the site as Agency Under Surveillance (the first presentation), the second as Who Watches the Watchers?, and the third as Cybersecurity.
+
+* **(first section)**
+  * How to make sure all the camera are working can be a problem? My friend who was was told by police that most of the camera from building are not action working but still there.
+  * If can private company can't dis There are some private camera that can control online and view what happen ontaby phone, if private company can't get access from cosumers, how can they share data?
+* **Group 2**
+  * Face For ③(future), if drone are allowed flying over the sky, even the government drone, how to make sure people's privacy. without Since if some of the cases need to show the video during crime, it has high possibility to also accidentally capture other people (eg. on the street, in the tea room...)
+* **Group 3**
+  * How to hold an agent accountable when they commit illegal acts (AI company, user ?).
