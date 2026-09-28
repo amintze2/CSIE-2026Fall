@@ -190,9 +190,7 @@ Headings are as the students wrote them. `[illegible]` marks handwriting the tra
 
 ### Sichen Deng
 
-The sheet is titled "Questions Group 2" and then labels its sections Group 2 and Group 3. The first section is filed on the site as Agency Under Surveillance (the first presentation), the second as Who Watches the Watchers?, and the third as Cybersecurity.
-
-* **(first section)**
+* **Group 1**
   * How to make sure all the camera are working can be a problem? My friend who was was told by police that most of the camera from building are not action working but still there.
   * If can private company can't dis There are some private camera that can control online and view what happen ontaby phone, if private company can't get access from cosumers, how can they share data?
 * **Group 2**
