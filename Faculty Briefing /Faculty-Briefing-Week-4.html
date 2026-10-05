@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 4 Faculty Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #FAFAF7;
+    --warm: #F5F2ED;
+    --surface: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-2: #45413B;
+    --muted: #6B6760;
+    --faint: #9C978E;
+    --border: #E0DDD6;
+    --red: #A63D2F;
+    --blue: #2C6BA6;
+    --green: #2D6B4A;
+    --ok-bg: #E3F1E8;
+    --ok-ink: #1F5A3B;
+    --late-bg: #F7E1DC;
+    --late-ink: #8A2F22;
+    --note-bg: #FBF3D9;
+    --note-ink: #6E5605;
+    --focus: #2C6BA6;
+    --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #141311;
+      --warm: #1E1C19;
+      --surface: #1A1917;
+      --ink: #EDEAE4;
+      --ink-2: #CFCAC1;
+      --muted: #A39E95;
+      --faint: #78736B;
+      --border: #35322D;
+      --red: #D98272;
+      --blue: #79A9DA;
+      --green: #74BF96;
+      --ok-bg: #1D3326;
+      --ok-ink: #9BD8B4;
+      --late-bg: #3A221D;
+      --late-ink: #F0A899;
+      --note-bg: #332B13;
+      --note-ink: #E6CD7A;
+      --focus: #79A9DA;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #141311;
+    --warm: #1E1C19;
+    --surface: #1A1917;
+    --ink: #EDEAE4;
+    --ink-2: #CFCAC1;
+    --muted: #A39E95;
+    --faint: #78736B;
+    --border: #35322D;
+    --red: #D98272;
+    --blue: #79A9DA;
+    --green: #74BF96;
+    --ok-bg: #1D3326;
+    --ok-ink: #9BD8B4;
+    --late-bg: #3A221D;
+    --late-ink: #F0A899;
+    --note-bg: #332B13;
+    --note-ink: #E6CD7A;
+    --focus: #79A9DA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; font-size: 15px; }
+  a { color: var(--blue); text-underline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  .page { max-width: 1100px; margin: 0 auto; padding-inline: 32px; padding-block: 0 80px; }
+  @media (max-width: 800px) { .page { padding-inline: 16px; padding-block: 0 56px; } }
+
+  /* Header */
+  .masthead { padding-block: 40px 22px; border-bottom: 4px solid var(--red); display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px 32px; }
+  .course { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .masthead h1 { font-family: var(--serif); font-size: clamp(30px, 5vw, 44px); font-weight: 900; letter-spacing: -0.5px; line-height: 1.1; margin-top: 6px; text-wrap: balance; }
+  .masthead .subtitle { font-size: 14px; color: var(--muted); margin-top: 6px; }
+  .masthead .meta { font-family: var(--mono); font-size: 12px; color: var(--muted); text-align: right; line-height: 1.8; font-variant-numeric: tabular-nums; }
+  .masthead .meta strong { color: var(--ink); font-weight: 700; }
+  @media (max-width: 640px) { .masthead .meta { text-align: left; } }
+
+  .private { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12px; color: var(--late-ink); background: var(--late-bg); padding: 8px 14px; margin-top: 20px; }
+  .private strong { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+  .calibration { background: var(--warm); border-left: 4px solid var(--blue); padding: 14px 18px; margin-top: 16px; font-size: 14px; color: var(--ink-2); max-width: 78ch; }
+
+  /* Section labels */
+  .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--red); margin: 44px 0 14px; padding-bottom: 6px; border-bottom: 2px solid var(--red); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .section-label .aside { font-family: var(--mono); font-weight: 500; letter-spacing: 1px; color: var(--muted); text-transform: none; font-size: 12px; }
+
+  /* Glance table */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
+  th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); padding: 9px 12px; border-bottom: 2px solid var(--ink); background: var(--warm); white-space: nowrap; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td a { font-weight: 600; color: var(--ink); }
+  td .deck { display: block; font-family: var(--mono); font-size: 11px; color: var(--faint); font-weight: 400; }
+  .none { color: var(--faint); }
+
+  /* Pills */
+  .pill { display: inline-block; font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; white-space: nowrap; }
+  .pill.ok { background: var(--ok-bg); color: var(--ok-ink); }
+  .pill.late { background: var(--late-bg); color: var(--late-ink); }
+  .pill.note { background: var(--note-bg); color: var(--note-ink); }
+
+  /* Team sections */
+  .team { margin-top: 48px; background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--ink); scroll-margin-top: 16px; }
+  .team-head { padding: 20px 24px 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px 20px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .team-head h2 { font-family: var(--serif); font-size: clamp(24px, 3.4vw, 30px); font-weight: 900; line-height: 1.15; letter-spacing: -0.3px; margin-top: 4px; text-wrap: balance; }
+  .team-body { padding: 20px 24px 24px; display: grid; gap: 24px; }
+  @media (max-width: 640px) { .team-head, .team-body { padding-inline: 16px; } }
+
+  .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--border); background: var(--warm); }
+  .facts > div { padding: 10px 14px; border-right: 1px solid var(--border); }
+  .facts > div:last-child { border-right: none; }
+  .facts dt { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .facts dd { font-size: 13px; color: var(--ink); margin-top: 3px; }
+  @media (max-width: 900px) {
+    .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .facts > div:nth-child(2) { border-right: none; }
+    .facts > div:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+  }
+  @media (max-width: 520px) {
+    .facts { grid-template-columns: 1fr; }
+    .facts > div { border-right: none; border-bottom: 1px solid var(--border); }
+    .facts > div:last-child { border-bottom: none; }
+  }
+
+  .block-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--ink); margin-bottom: 8px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .block-label.green { color: var(--green); }
+  .block-label.red { color: var(--red); }
+  .block-label .aside { font-weight: 500; letter-spacing: 1px; text-transform: none; color: var(--muted); font-size: 12px; }
+  .summary p { max-width: 78ch; color: var(--ink-2); }
+
+  .sw { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 28px; }
+  @media (max-width: 800px) { .sw { grid-template-columns: 1fr; } }
+  .sw .col { display: grid; gap: 14px; align-content: start; }
+  .point { padding-left: 14px; border-left: 2px solid var(--border); }
+  .strengths .point { border-left-color: var(--green); }
+  .weaknesses .point { border-left-color: var(--red); }
+  .point h4 { font-size: 14px; font-weight: 700; line-height: 1.4; color: var(--ink); }
+  .point p { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+
+  /* Questions */
+  .questions { list-style: none; display: grid; gap: 10px; counter-reset: q; }
+  .q { display: grid; grid-template-columns: 28px 1fr auto; gap: 4px 12px; align-items: start; padding: 14px 16px; background: var(--warm); border: 1px solid var(--border); counter-increment: q; }
+  .q::before { content: counter(q); font-family: var(--mono); font-weight: 700; font-size: 15px; color: var(--red); line-height: 1.5; }
+  .q.picked { border-color: var(--green); box-shadow: inset 3px 0 0 var(--green); }
+  .q-tag { font-size: 14px; font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .q-quote { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--ink); margin-top: 6px; max-width: 70ch; }
+  .q-hint { font-size: 13px; color: var(--muted); margin-top: 6px; max-width: 75ch; }
+  .ask { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); cursor: pointer; padding: 4px 8px; border: 1px solid var(--border); background: var(--surface); user-select: none; white-space: nowrap; }
+  .ask input { width: 15px; height: 15px; accent-color: var(--green); cursor: pointer; }
+  .q.picked .ask { color: var(--ok-ink); border-color: var(--green); }
+  @media (max-width: 560px) {
+    .q { grid-template-columns: 22px 1fr; }
+    .q .ask { grid-column: 2; justify-self: start; margin-top: 6px; }
+  }
+  .counter { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 2px 8px; border-radius: 2px; background: var(--warm); color: var(--muted); border: 1px solid var(--border); }
+  .counter.enough { background: var(--ok-bg); color: var(--ok-ink); border-color: transparent; }
+  .counter.over { background: var(--note-bg); color: var(--note-ink); border-color: transparent; }
+
+  /* Cross-student */
+  .xs { display: grid; gap: 14px; }
+  .xcard { background: var(--surface); border: 1px solid var(--border); padding: 18px 22px; }
+  .xcard h3 { font-size: 15px; font-weight: 700; line-height: 1.4; }
+  .xcard p { font-size: 14px; color: var(--ink-2); margin-top: 6px; max-width: 80ch; }
+  .xcard.feature { border-top: 3px solid var(--red); }
+  .versus { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; margin-top: 14px; align-items: stretch; }
+  .side { background: var(--warm); border: 1px solid var(--border); padding: 14px 16px; }
+  .side .who { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .side .stance { font-family: var(--serif); font-size: 19px; font-weight: 900; line-height: 1.25; margin-top: 4px; }
+  .side p { font-size: 13.5px; margin-top: 6px; }
+  .vs { align-self: center; font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: 1.5px; color: var(--red); }
+  @media (max-width: 700px) { .versus { grid-template-columns: 1fr; } .vs { justify-self: center; } }
+  .recommend { margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--ink); padding: 10px 14px; background: var(--note-bg); }
+  .tag { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--ink-2); background: var(--warm); border: 1px solid var(--border); padding: 1px 7px; border-radius: 2px; margin: 1px 2px 1px 0; white-space: nowrap; }
+  .clusters { list-style: none; display: grid; gap: 10px; margin-top: 10px; }
+  .clusters li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; }
+  .clusters .cname { font-weight: 700; margin-right: 6px; }
+  .clusters .plus { color: var(--red); font-weight: 700; }
+
+  /* Design notes */
+  .notes { display: grid; gap: 16px; }
+  .notes p, .notes li { font-size: 14px; color: var(--ink-2); max-width: 80ch; }
+  .notes h3 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+  .notes ul { padding-left: 18px; display: grid; gap: 8px; }
+  .notes li em { font-style: normal; font-weight: 600; color: var(--ink); }
+  .ta { background: var(--warm); border: 1px solid var(--border); padding: 16px 20px; }
+
+  /* Picks */
+  .picks { background: var(--surface); border: 1px solid var(--border); padding: 18px 22px; }
+  .picks-empty { font-size: 14px; color: var(--muted); }
+  .picks-team + .picks-team { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .picks-team h3 { font-family: var(--serif); font-size: 18px; font-weight: 900; }
+  .picks-team ol { margin-top: 6px; padding-left: 20px; display: grid; gap: 6px; }
+  .picks-team li { font-size: 14px; color: var(--ink-2); }
+  .picks-team li strong { color: var(--ink); }
+  .picks-bar { display: flex; justify-content: flex-end; margin-top: 12px; }
+  .btn { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ink); background: var(--warm); border: 1px solid var(--border); padding: 7px 12px; cursor: pointer; }
+  .btn:hover { border-color: var(--ink); }
+  .btn[disabled] { opacity: 0.5; cursor: default; border-color: var(--border); }
+
+  footer { margin-top: 56px; padding-top: 16px; border-top: 3px solid var(--ink); display: flex; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; font-size: 11px; color: var(--faint); text-transform: uppercase; letter-spacing: 1px; }
+  footer a { color: var(--muted); }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+  @media print {
+    body { background: #fff; color: #000; font-size: 12px; }
+    .page { max-width: none; padding-inline: 0; }
+    .ask, .picks-bar, .counter { display: none !important; }
+    .team, .xcard, .q, .point, .side { break-inside: avoid; }
+    .team { border: 1px solid #ccc; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="masthead">
+  <div>
+    <div class="course">Computer Science Innovation and Entrepreneurship · EN.660.410.01.FA26</div>
+    <h1>Faculty Briefing, Week 4</h1>
+    <div class="subtitle">Domain presentations · Nested Hierarchies · one card per team</div>
+  </div>
+  <div class="meta">
+    <strong>Fall 2026</strong> · Week 4<br>
+    4 of 4 decks · <strong>0 late</strong><br>
+    Prepared Oct 5, 2026
+  </div>
+</header>
+
+<div class="private"><strong>Private</strong> Faculty and TA only. Not for distribution to students.</div>
+
+<p class="calibration">Monday-morning briefing generated from the four Week 4 domain decks. All four teams applied Nested Hierarchies (systems analysis): map the levels above and below a focal point, find the level where the constraint sits, and choose what kind of innovation to make there. Calibrated for the opportunity-scanning phase (Weeks 2–10): the weaknesses below are about framing quality, abstraction level, where the constraint is placed, and assumption awareness, not evidence or market proof. Validation scrutiny is for Weeks 12–14.</p>
+
+<h2 class="section-label">At a glance <span class="aside">tick “Ask” on 2–3 questions per team</span></h2>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Team</th><th>Members</th><th>Submitted</th><th>Strongest pick (speaker notes)</th><th>Questions picked</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="#juniors">Disappearing Junior-Level Software Jobs</a><span class="deck">week41</span></td>
+        <td>Owen, Jingchen, Jonathan, Sophia, Daniel <span class="pill note">Inferred</span></td>
+        <td><span class="pill ok">On time</span></td>
+        <td class="none">None (notes lean 03)</td>
+        <td class="num" data-glance="juniors">0 of 4</td>
+      </tr>
+      <tr>
+        <td><a href="#construction">Construction Inefficiencies</a><span class="deck">week42</span></td>
+        <td>Sissi, Yash, Flora, Steven, Evan</td>
+        <td><span class="pill ok">On time</span></td>
+        <td>02 · Fragmented workflows</td>
+        <td class="num" data-glance="construction">0 of 4</td>
+      </tr>
+      <tr>
+        <td><a href="#grid">Grid Modernization</a><span class="deck">week43</span></td>
+        <td>Sylvia, Kendall, Penn, Sichen</td>
+        <td><span class="pill ok">On time</span> <span class="pill note">No notes</span></td>
+        <td class="none">None</td>
+        <td class="num" data-glance="grid">0 of 4</td>
+      </tr>
+      <tr>
+        <td><a href="#curriculum">Curriculum as Part of a System</a><span class="deck">week44</span></td>
+        <td>Michael, Sahana, Kerry</td>
+        <td><span class="pill ok">On time</span></td>
+        <td class="none">None (6 cards)</td>
+        <td class="num" data-glance="curriculum">0 of 4</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============ TEAM 1 ============ -->
+<section class="team" id="juniors" data-team="juniors" data-name="Disappearing Junior-Level Software Jobs">
+  <div class="team-head">
+    <div>
+      <div class="eyebrow">week41 · Nested Hierarchies</div>
+      <h2>Disappearing Junior-Level Software Jobs</h2>
+    </div>
+    <span class="pill ok">On time</span>
+  </div>
+  <div class="team-body">
+    <dl class="facts">
+      <div><dt>Team</dt><dd>Not listed on any slide. Likely Owen Bartlett, Jingchen Jiang, Jonathan Locala, Sophia Mai, Daniel Sung (inferred from roster; confirm)</dd></div>
+      <div><dt>Domain</dt><dd>The software talent system, with the junior engineer role as focal point</dd></div>
+      <div><dt>Methodology</dt><dd>Nested Hierarchies</dd></div>
+      <div><dt>Submitted</dt><dd>Week 4 deck (week41), on time</dd></div>
+    </dl>
+
+    <div class="summary">
+      <h3 class="block-label">Summary</h3>
+      <p>Team framed the software talent system around the junior engineer role, the step where beginners become experienced engineers. New-grad hiring at the 12 largest tech companies is down 65% from 2019 and recent CS graduates face 6.1% unemployment, while BLS projects software developer employment to grow 16% through 2034. The speaker notes separate the two trends: engineering hiring fell about 11% while new-grad hiring fell 65–76%. The hierarchy runs from macro economy and policy, through the talent ecosystem and the firm, down to the junior role, which they split into production, learning, and signaling sub-systems. They name learning as the reverse salient: experience used to come free with routine work, and AI made routine work cheap. Four opportunities are ordered around the hiring gate (before, at, after, and re-imagining the system): new pathways for building experience, a greater value on engineering judgment, new junior roles in AI-enabled teams, and industry-level talent investment. No strongest pick is named; the notes lean toward 03.</p>
+    </div>
+
+    <div class="sw">
+      <div class="col strengths">
+        <h3 class="block-label green">Strengths</h3>
+        <div class="point">
+          <h4>The unbundling insight.</h4>
+          <p>“The junior role bundled production and learning; AI unbundled them.” The notes explain that a junior used to pay for their own training through routine work, and once AI took that work “the cross-subsidy disappeared.” This accounts for why the drop is concentrated at entry level rather than across engineering, and the 11% vs. 65–76% split supports it. The team changed the question from “are juniors skilled enough” to “what was paying for their training.”</p>
+        </div>
+        <div class="point">
+          <h4>Found a constraint above the focal point.</h4>
+          <p>Training is an industry-level externality: a firm that develops a junior may watch a competitor hire them away. The team looked up the hierarchy as the method asks, and the “self-undermining loop” (firms now prize judgment, which the junior years used to build) follows from it.</p>
+        </div>
+        <div class="point">
+          <h4>Considered a future that argues against them.</h4>
+          <p>The “rebound scenario” (AI-fluent juniors reach mid-level faster, so hiring them pays off again) is a corrective force the team raised itself. Week 2 decks were flagged for leaving these out.</p>
+        </div>
+      </div>
+      <div class="col weaknesses">
+        <h3 class="block-label red">Weaknesses</h3>
+        <div class="point">
+          <h4>The opportunities read as forecasts rather than problems.</h4>
+          <p>Each one ends in a prediction: experience “may become separable” from employment, judgment “may become a stronger differentiator,” developing engineers “becomes increasingly valuable.” None names who has the problem today or what currently fails for them. The construction deck’s WHO / WHY / SIGNAL lines are a useful comparison.</p>
+        </div>
+        <div class="point">
+          <h4>The externality diagnosis is not carried into the opportunities.</h4>
+          <p>If firms under-invest in training because they cannot keep the benefit, then Opp 01 (pathways outside employment) and Opp 04 (industry talent investment) both need a payer who can. The notes compare Opp 04 to medical residency, but residency is largely publicly funded (Medicare is the largest single funder of residency positions), and that is the part the analogy depends on.</p>
+        </div>
+        <div class="point">
+          <h4>Opportunities 02 and 03 assume demand the deck doesn’t show.</h4>
+          <p>Opp 02’s signal (84% use AI, 46% distrust its accuracy) comes from a developer survey; it shows developers distrust AI output, not that employers hire or pay for judgment. Opp 03 assumes a firm will place a junior between a senior and the AI agents, when slide 4 shows the firm already getting the output from a senior plus AI.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="block-label">Suggested Questions <span class="aside">(pick 2–3)</span> <span class="counter" data-counter="juniors">0 picked</span></h3>
+      <ol class="questions">
+        <li class="q">
+          <div>
+            <div class="q-tag">Test ownership of the key reframe.</div>
+            <p class="q-quote">“You say AI didn’t make juniors less skilled; it removed what used to pay for their training. Walk us through how you got from the hiring numbers to that conclusion.”</p>
+            <p class="q-hint">If they own it, they’ll explain the 11% vs. 65–76% split and the cross-subsidy without the slide. If they don’t, they’ll restate “AI took the routine work.”</p>
+          </div>
+          <label class="ask" for="q-juniors-1"><input type="checkbox" id="q-juniors-1"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Challenge the analogy.</div>
+            <p class="q-quote">“Your notes compare industry talent investment to medical residency. Residency works partly because Medicare pays for much of it. Who plays Medicare for software engineering?”</p>
+            <p class="q-hint">Tests whether they understand how the residency model works or just liked the parallel. A strong answer connects back to their own externality point.</p>
+          </div>
+          <label class="ask" for="q-juniors-2"><input type="checkbox" id="q-juniors-2"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Test the demand behind Opportunity 03.</div>
+            <p class="q-quote">“Slide 4 shows one senior plus AI agents getting the output. Why would a firm put a junior between the senior and the agents?”</p>
+            <p class="q-hint">A strong answer uses their experience-lag point (today’s missing juniors are tomorrow’s senior gap) and says who notices that cost first. A weak one restates that juniors could manage AI.</p>
+          </div>
+          <label class="ask" for="q-juniors-3"><input type="checkbox" id="q-juniors-3"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Turn a forecast into a problem. <span class="pill note">Use if time</span></div>
+            <p class="q-quote">“Pick one opportunity and tell us who has this problem today and what they’re doing about it now.”</p>
+            <p class="q-hint">Moves the opportunities from predictions toward problems someone currently has, without asking for a solution.</p>
+          </div>
+          <label class="ask" for="q-juniors-4"><input type="checkbox" id="q-juniors-4"> Ask</label>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM 2 ============ -->
+<section class="team" id="construction" data-team="construction" data-name="Construction Inefficiencies">
+  <div class="team-head">
+    <div>
+      <div class="eyebrow">week42 · Nested Hierarchies</div>
+      <h2>Construction Inefficiencies</h2>
+    </div>
+    <span class="pill ok">On time</span>
+  </div>
+  <div class="team-body">
+    <dl class="facts">
+      <div><dt>Team</dt><dd>Sissi Lai, Yash Chadda, Flora Huang, Steven Li, Evan Batten</dd></div>
+      <div><dt>Domain</dt><dd>Construction productivity and project delivery</dd></div>
+      <div><dt>Methodology</dt><dd>Nested Hierarchies</dd></div>
+      <div><dt>Submitted</dt><dd>Week 4 deck (week42), on time</dd></div>
+    </dl>
+
+    <div class="summary">
+      <h3 class="block-label">Summary</h3>
+      <p>Team opened with the gap between better tools and flat output: construction productivity has grown about 1% a year for two decades while machines, materials, and software improved sharply, and large projects run roughly 80% over budget and 20% late. They treated labor as a replacement problem rather than a growth problem (349,000 net new workers needed in 2026 per ABC, with 41% of the workforce projected to retire by 2031). The hierarchy has five levels with the project as focal point and the constraint one level above it, in project delivery (design, permits, contracts), where every building is “a one-off prototype.” Katerra is the test case: more than $2B bought factories and an integrated value chain (levels 1–2), and the company went bankrupt in 2021 on jurisdictional code variation and contracting relationships. They produced three problems: every project starts from scratch, fragmented workflows with no party accountable for the outcome, and experience leaving with a retiring workforce. The speaker notes name 02 as most addressable.</p>
+    </div>
+
+    <div class="sw">
+      <div class="col strengths">
+        <h3 class="block-label green">Strengths</h3>
+        <div class="point">
+          <h4>Katerra as a natural experiment for the method.</h4>
+          <p>“Two billion dollars bought a complete Level 1 and 2 solution. It failed on contracting relationships and jurisdictional code variation.” The team used a real failure to test where the constraint sits instead of asserting it. This is the strongest use of the nested-hierarchies tool of the four decks.</p>
+        </div>
+        <div class="point">
+          <h4>Reasoned from where improvement already happened.</h4>
+          <p>Level 1 was transformed and productivity did not move, so the constraint must be elsewhere. This applies the worksheet’s “a better motor does not help” logic to evidence, and it explains why the team set aside its first instinct (tools).</p>
+        </div>
+        <div class="point">
+          <h4>Careful with numbers.</h4>
+          <p>The notes lead with ABC’s conservative 349,000 and hold Deloitte’s 499,000 as the higher estimate, and labor demand is identified as retirement-driven. Each problem carries WHO / WHY / SIGNAL lines.</p>
+        </div>
+      </div>
+      <div class="col weaknesses">
+        <h3 class="block-label red">Weaknesses</h3>
+        <div class="point">
+          <h4>Opportunity 03 is not a level 4 problem.</h4>
+          <p>The slide is titled “Opportunities at level 4” and closes with “Every reason those fixes fail sits at level 4,” but the retiring-workforce problem sits at level 2 (crews) and is a separate story from the productivity gap the deck is built on. It may still be a good opportunity; the connection to the constraint is not drawn.</p>
+        </div>
+        <div class="point">
+          <h4>Level 5 is named and then set aside.</h4>
+          <p>The Katerra slide says what stopped the company sat at “levels 4 and 5,” and the notes say level 4. Jurisdictional code variation and who is allowed to build arguably belong to level 5 (government and planning). If Opp 01’s repetition requires more uniform codes, the constraint may sit higher than the team placed it, which changes who could act on it.</p>
+        </div>
+        <div class="point">
+          <h4>Opportunity 02 may already have a contract form.</h4>
+          <p>The notes say integrated delivery contracts “already exist in other sectors.” Design-build and integrated project delivery also exist within construction itself. That does not make the problem solved, but it changes the question from “no one has the contract” to “why hasn’t the existing contract fixed it.”</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="block-label">Suggested Questions <span class="aside">(pick 2–3)</span> <span class="counter" data-counter="construction">0 picked</span></h3>
+      <ol class="questions">
+        <li class="q">
+          <div>
+            <div class="q-tag">Test ownership of the key argument.</div>
+            <p class="q-quote">“Katerra spent $2B and failed. How do you know it failed because of level 4 and not because of how it was run?”</p>
+            <p class="q-hint">If they own it, they’ll point to the specific evidence (state-by-state codes, contractors refusing to leave their subcontractors, the factory never activated). A strong team will also admit that one case cannot rule out execution.</p>
+          </div>
+          <label class="ask" for="q-construction-1"><input type="checkbox" id="q-construction-1"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Challenge the “most addressable” pick.</div>
+            <p class="q-quote">“Design-build and integrated project delivery contracts already exist in construction. If the contract exists, why are large projects still running 80% over budget?”</p>
+            <p class="q-hint">Tests whether 02 is a contracting problem, as the notes claim, or a problem of incentives and accountability that the contract doesn’t reach.</p>
+          </div>
+          <label class="ask" for="q-construction-2"><input type="checkbox" id="q-construction-2"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Locate Opportunity 03.</div>
+            <p class="q-quote">“Your slide says every reason the fixes fail sits at level 4. Where does the retiring workforce sit, and how does it connect to your constraint?”</p>
+            <p class="q-hint">A good answer either connects it (for example, if nothing repeats, every project leans harder on experienced judgment) or acknowledges it as a separate opportunity.</p>
+          </div>
+          <label class="ask" for="q-construction-3"><input type="checkbox" id="q-construction-3"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Look up one more level. <span class="pill note">Use if strong</span></div>
+            <p class="q-quote">“If building codes differ by jurisdiction, can anyone at level 4 make repetition possible without level 5 changing?”</p>
+            <p class="q-hint">Shows whether they chose level 4 because that’s where the constraint is or because it’s more addressable than government.</p>
+          </div>
+          <label class="ask" for="q-construction-4"><input type="checkbox" id="q-construction-4"> Ask</label>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM 3 ============ -->
+<section class="team" id="grid" data-team="grid" data-name="Grid Modernization">
+  <div class="team-head">
+    <div>
+      <div class="eyebrow">week43 · Nested Hierarchies</div>
+      <h2>Grid Modernization</h2>
+    </div>
+    <span><span class="pill ok">On time</span> <span class="pill note">No notes</span></span>
+  </div>
+  <div class="team-body">
+    <dl class="facts">
+      <div><dt>Team</dt><dd>Sylvia Yam, Kendall Frederick, Penn Riney, Sichen Deng</dd></div>
+      <div><dt>Domain</dt><dd>Electricity grid resilience and distributed energy, with BGE’s service territory as focal point</dd></div>
+      <div><dt>Methodology</dt><dd>Nested Hierarchies</dd></div>
+      <div><dt>Submitted</dt><dd>Week 4 deck (week43), on time. No speaker notes; the slide 4 hierarchy is an image and was read for this briefing.</dd></div>
+    </dl>
+
+    <div class="summary">
+      <h3 class="block-label">Summary</h3>
+      <p>Team opened with Texas in February 2021: more than 4.5 million people lost power, 20,000 MW of rolling blackouts, and only 820 MW of links to the rest of the US grid, enough to cover about 4% of the shortfall. They framed the grid as built one-way (plants to passive users) while solar, batteries, and EVs now send power back, citing 33 GW of virtual power plants today and a DOE target of 80–160 GW by 2030. The hierarchy uses BGE’s service territory as focal point, with PJM/the Eastern Interconnection and the US energy system above, and the local distribution grid and devices below. The reverse salient is the distribution grid (level 2), where “risk flows down” and “change flows up.” The team changes one element: each neighborhood becomes a cell that can island and share power over controllable DC links, coordinated by software. Three opportunities follow: last-mile visibility behind the meter, virtual power plant orchestration, and a routing protocol for power. No strongest pick is named.</p>
+    </div>
+
+    <div class="sw">
+      <div class="col strengths">
+        <h3 class="block-label green">Strengths</h3>
+        <div class="point">
+          <h4>A clear two-direction reading of the hierarchy.</h4>
+          <p>“Risk flows down” (an upstream failure darkens every neighborhood) and “change flows up” (devices now send power back) meet at level 2. This is a precise explanation of why the distribution grid is the reverse salient, and the local focal point grounds the analysis in a system the team can observe.</p>
+        </div>
+        <div class="point">
+          <h4>Opportunities are sequenced, not only listed.</h4>
+          <p>The “what cascades” column states that the other two ideas depend on last-mile visibility. That dependency is a step toward choosing where to start.</p>
+        </div>
+        <div class="point">
+          <h4>Named the risk in its own proposal.</h4>
+          <p>“More software on the grid means a larger attack surface.” The team raised the second-order cost of its design without prompting.</p>
+        </div>
+      </div>
+      <div class="col weaknesses">
+        <h3 class="block-label red">Weaknesses</h3>
+        <div class="point">
+          <h4>The opening case argues for connection, and the proposal adds islanding.</h4>
+          <p>Texas failed because it was isolated and could not import power, and 76% of outages came from frozen plants and gas supply, which sit at level 5. The proposal makes each neighborhood able to isolate itself. The DC links between cells may answer this, but the deck does not connect the Texas lesson to level 2, and the case comes from ERCOT rather than BGE/PJM.</p>
+        </div>
+        <div class="point">
+          <h4>“Institutional inertia” is named as what’s stuck, but all three opportunities are software.</h4>
+          <p>The level 2 slide lists institutional inertia and slow infrastructure replacement as what is stuck. Peaks being “met by building plants while home batteries and EVs sit idle” may reflect how utilities are regulated and paid (a return on capital investment) rather than a missing tool. The construction team’s Katerra argument, better tools with the constraint one level up, applies here.</p>
+        </div>
+        <div class="point">
+          <h4>The opportunities overlap existing product categories.</h4>
+          <p>The team’s own slide reports 33 GW of virtual power plants already operating, and utilities already run distributed-energy management systems aimed at behind-the-meter visibility. This is not a request for market proof. Asking what existing tools miss would sharpen the problem (the same note made for the Week 3 cybersecurity team).</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="block-label">Suggested Questions <span class="aside">(pick 2–3)</span> <span class="counter" data-counter="grid">0 picked</span></h3>
+      <ol class="questions">
+        <li class="q">
+          <div>
+            <div class="q-tag">Reconcile the case and the proposal.</div>
+            <p class="q-quote">“Texas went dark because it couldn’t import power. Your design lets every neighborhood cut itself off. Walk us through why that helps rather than hurts.”</p>
+            <p class="q-hint">If they own the design, they’ll explain islanding as a fault boundary and the DC links as the import path. If they don’t, they’ll restate the slide. With no speaker notes, this is also the best check on ownership.</p>
+          </div>
+          <label class="ask" for="q-grid-1"><input type="checkbox" id="q-grid-1"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Find the real constraint.</div>
+            <p class="q-quote">“You list institutional inertia as what’s stuck. If a utility earns its return by building plants, does better software change what it chooses to do?”</p>
+            <p class="q-hint">Tests whether the opportunities sit at the level of the constraint. A strong team will name who would need to change (the regulator, rate design) or argue why software alone shifts the incentive.</p>
+          </div>
+          <label class="ask" for="q-grid-2"><input type="checkbox" id="q-grid-2"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Find the gap.</div>
+            <p class="q-quote">“Your slide says 33 GW of virtual power plants already exist. What isn’t working about them that your orchestration opportunity would fix?”</p>
+            <p class="q-hint">Separates “this category exists” from “this specific problem remains.”</p>
+          </div>
+          <label class="ask" for="q-grid-3"><input type="checkbox" id="q-grid-3"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Force a choice. <span class="pill note">Use if strong</span></div>
+            <p class="q-quote">“You say the other two ideas depend on last-mile visibility. Is that the one you’d carry into your portfolio, and who at BGE would you talk to first?”</p>
+            <p class="q-hint">No pick appears in the deck.</p>
+          </div>
+          <label class="ask" for="q-grid-4"><input type="checkbox" id="q-grid-4"> Ask</label>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM 4 ============ -->
+<section class="team" id="curriculum" data-team="curriculum" data-name="Curriculum as Part of a System">
+  <div class="team-head">
+    <div>
+      <div class="eyebrow">week44 · Systems Analysis</div>
+      <h2>Curriculum as Part of a System</h2>
+    </div>
+    <span class="pill ok">On time</span>
+  </div>
+  <div class="team-body">
+    <dl class="facts">
+      <div><dt>Team</dt><dd>Michael Squeri, Sahana Raja, Kerry Wang</dd></div>
+      <div><dt>Domain</dt><dd>Higher education, with the curriculum as focal point</dd></div>
+      <div><dt>Methodology</dt><dd>Systems Analysis (Nested Hierarchies)</dd></div>
+      <div><dt>Submitted</dt><dd>Week 4 deck (week44), on time</dd></div>
+    </dl>
+
+    <div class="summary">
+      <h3 class="block-label">Summary</h3>
+      <p>Team took higher education as the domain and the curriculum as focal point, in a hierarchy of elements, classes, curriculum, education, and workforce. The framing is a mismatch of clock speeds: 39% of workers’ core skills are expected to change by 2030, while a substantive curriculum change takes about two years to reach the catalog. Supporting data: 88% of students and 77% of faculty use AI, under 30% of students think their assessments reflect an AI-enabled workplace, and Harvard grades have compressed toward A’s. Six opportunity spaces are written as “How might we” questions and ordered by innovation level (elements, interactions, system, purpose): what’s easy to grade gets taught, the skills nobody assigns, the transcript stopped signaling, theory without application, a degree that stops at 22, and why pay for the degree. No strongest pick is named.</p>
+    </div>
+
+    <div class="sw">
+      <div class="col strengths">
+        <h3 class="block-label green">Strengths</h3>
+        <div class="point">
+          <h4>“What’s easy to grade gets taught.”</h4>
+          <p>Grading capacity (300 students, three TAs, autograders) quietly sets the ceiling on what can be assigned, and the return to handwritten exams after AI was chosen for gradeability rather than for what those exams measure. This is a structural explanation the team found inside its own experience.</p>
+        </div>
+        <div class="point">
+          <h4>The clock-speed framing.</h4>
+          <p>Placing 39% of skills changing by 2030 next to a two-year approval cycle states the problem as a mismatch between levels of one system, not as bad teaching or lazy students. The notes say this directly.</p>
+        </div>
+        <div class="point">
+          <h4>Problems, not solutions, ordered by level.</h4>
+          <p>Each card states a problem and turns it into a question, and the notes add three tests any solution would have to pass (minimum theory, where AI fits, how we know it stuck). The purpose-level cards question what the system is for.</p>
+        </div>
+      </div>
+      <div class="col weaknesses">
+        <h3 class="block-label red">Weaknesses</h3>
+        <div class="point">
+          <h4>The constraint is placed in three different spots.</h4>
+          <p>The analysis slide puts it at the focal level (“the gap between what a course could be and how it is actually taught”). The notes say much of what holds the curriculum still is authorized one level above, in approval cycles and credit-hour rules. The System card calls the two-year approval cycle “the reverse salient.” The method asks the team to commit to one level, and that choice decides who could act.</p>
+        </div>
+        <div class="point">
+          <h4>Six opportunities, no pick, and one answer built into a question.</h4>
+          <p>The Week 2 pattern of presenting a menu returns, and this is the largest one so far. “How might a course cover essential theory in 2–3 weeks, then spend the rest applying it” prescribes the solution inside the question; the problem underneath is that application gets crowded out.</p>
+        </div>
+        <div class="point">
+          <h4>Some evidence is stretched or mismatched.</h4>
+          <p>The notes describe a chart of the share of A grades (about 25% in 2005 to over 60%), but the slide image shows Harvard median GPA from 1950 to 2025. The single-institution caveat appears only in the notes. “Palantir now hires straight out of high school” rests on a 22-person fellowship, and the two-year approval figure comes from two universities. That is acceptable for scanning, but the slide claims are broader than the sources.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="block-label">Suggested Questions <span class="aside">(pick 2–3)</span> <span class="counter" data-counter="curriculum">0 picked</span></h3>
+      <ol class="questions">
+        <li class="q">
+          <div>
+            <div class="q-tag">Test ownership of the key insight.</div>
+            <p class="q-quote">“You say what’s easy to grade gets taught. Give us an example from a course you’ve taken where grading capacity decided what was assigned.”</p>
+            <p class="q-hint">If they own it, they’ll name a specific course and assignment. If they don’t, they’ll repeat the 300-students example from the notes.</p>
+          </div>
+          <label class="ask" for="q-curriculum-1"><input type="checkbox" id="q-curriculum-1"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Commit to a level.</div>
+            <p class="q-quote">“Your analysis says the constraint is in how courses are taught. Your notes say it’s the approval cycle one level up. Which is it, and who would have to act?”</p>
+            <p class="q-hint">Tests whether they understand that the location of the constraint decides who can act on it.</p>
+          </div>
+          <label class="ask" for="q-curriculum-2"><input type="checkbox" id="q-curriculum-2"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Find the problem under the solution.</div>
+            <p class="q-quote">“‘Theory in 2–3 weeks’ is an answer. What problem does it solve, stated without the solution?”</p>
+            <p class="q-hint">The same check used with the Week 3 Watchers team.</p>
+          </div>
+          <label class="ask" for="q-curriculum-3"><input type="checkbox" id="q-curriculum-3"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Force a choice. <span class="pill note">Use if strong</span></div>
+            <p class="q-quote">“Of your six, which one would you carry into your portfolio, and why that one over ‘Why pay for the degree?’”</p>
+            <p class="q-hint">Reveals which opportunity the team believes in versus which sounds most ambitious.</p>
+          </div>
+          <label class="ask" for="q-curriculum-4"><input type="checkbox" id="q-curriculum-4"> Ask</label>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CROSS-STUDENT ============ -->
+<h2 class="section-label">Cross-Student Intelligence</h2>
+<div class="xs">
+  <article class="xcard feature">
+    <h3>Three domains, one problem: the way novices become experts is breaking.</h3>
+    <p><span class="tag">Junior Jobs</span> Experience was a by-product of routine work, and AI now does the routine work. <span class="tag">Construction · Opp 03</span> Tradespeople are retiring faster than skills can be transferred, and supervision thins while new workers come up. <span class="tag">Curriculum · a degree that stops at 22, the transcript stopped signaling</span> About 70% of employers say new graduates still need substantial training, and grades no longer tell them who is ready. Both labor-focused decks cite AI taking entry-level tasks first (SignalFire; Stanford Digital Economy Lab). The two CS-adjacent teams place responsibility in different places.</p>
+    <div class="versus">
+      <div class="side">
+        <div class="who">Disappearing Junior-Level Software Jobs</div>
+        <div class="stance">Industry has to build it.</div>
+        <p>Experience as shared infrastructure, like medical residency, built outside traditional employment.</p>
+      </div>
+      <div class="vs">VS</div>
+      <div class="side">
+        <div class="who">Curriculum as Part of a System</div>
+        <div class="stance">The degree has to build it.</div>
+        <p>Application inside every course, and a degree that keeps skills current past graduation.</p>
+      </div>
+    </div>
+    <p class="recommend">Recommend presenting these two back-to-back and asking the room who should pay for experience: the employer, the school, or someone else.</p>
+  </article>
+
+  <article class="xcard">
+    <h3>Better tools, stuck institutions: construction and the grid.</h3>
+    <p><span class="tag">Construction</span> argues that level 1 improved for twenty years while the constraint sat in delivery, contracts, and codes, and uses Katerra to show what happens when money goes to the wrong level. <span class="tag">Grid</span> names institutional inertia as what is stuck and then proposes three software opportunities. Both are regulated, jurisdiction-fragmented infrastructure industries. Worth asking the grid team the construction team’s question: what would Katerra’s lesson say about a software fix for the grid?</p>
+  </article>
+
+  <article class="xcard">
+    <h3>Two teams arrive at “judgment,” which is where the course design also lands.</h3>
+    <p><span class="tag">Junior Jobs · Opp 02</span> “Engineering judgment may become a stronger differentiator” and <span class="tag">Curriculum · the skills nobody assigns</span> “judgment and communication” reach the same conclusion as the curriculum redesign’s Employer Signal (“The scarce resource is judgment”). Worth checking in the ownership questions whether the teams derived this or absorbed it from course framing. Separately, the Curriculum deck describes the course model being taught (“theory in 2–3 weeks, then application”; “what’s easy to grade gets taught”). Treat it as useful input, and keep the questions open rather than defensive.</p>
+  </article>
+
+  <article class="xcard">
+    <h3>Threads carried over from Weeks 2–3.</h3>
+    <p>AI and work continues as the largest thread (Week 2 Public Approval of AI and AI-generated media; Week 3 AI agents; this week two AI-and-labor decks). <span class="tag">Grid</span> “More software on the grid means a larger attack surface” connects to the Week 3 cybersecurity team’s “the kill switch becomes the target.” <span class="tag">Grid</span> The isolated Texas interconnection and the Week 3 supply-chain chokepoints both describe resilience lost to a single point of failure.</p>
+  </article>
+
+  <article class="xcard">
+    <h3>Potential team-formation clusters <span class="aside" style="font-weight:500;color:var(--muted);font-size:13px;">for the Weeks 7–8 portfolio review</span></h3>
+    <ul class="clusters">
+      <li><span class="cname">Where experience gets made</span> <span class="tag">Junior Jobs Opp 01, 04</span> <span class="plus">+</span> <span class="tag">Construction Opp 03</span> <span class="plus">+</span> <span class="tag">Curriculum: degree stops at 22, transcript stopped signaling</span></li>
+      <li><span class="cname">Judgment as the scarce skill</span> <span class="tag">Junior Jobs Opp 02–03</span> <span class="plus">+</span> <span class="tag">Curriculum: skills nobody assigns, easy-to-grade gets taught</span></li>
+      <li><span class="cname">Infrastructure that can’t repeat or adapt</span> <span class="tag">Construction Opp 01–02</span> <span class="plus">+</span> <span class="tag">Grid: last-mile visibility, routing protocol</span> <span class="plus">+</span> <span class="tag">Week 3 Supply Chain Opp 02</span></li>
+    </ul>
+  </article>
+</div>
+
+<!-- ============ DESIGN NOTES ============ -->
+<h2 class="section-label">Briefing Design Notes</h2>
+<div class="notes">
+  <p>This briefing is calibrated for the opportunity-scanning phase (Weeks 2–10). The weaknesses above focus on framing quality, abstraction level, where the constraint is placed, and assumption awareness, not evidence or market proof. Validation-level scrutiny is for Weeks 12–14.</p>
+  <div>
+    <h3>Method pattern this week: does the opportunity sit at the level of the constraint?</h3>
+    <p>All four teams used nested hierarchies, and the common gap is the step from locating a constraint to acting on it. Construction is the example to point to: it places the constraint above the focal point, tests the placement with Katerra, and keeps two of three opportunities at that level. Grid names an institutional constraint and proposes software at level 2. Curriculum places the constraint in three different spots. Junior Jobs finds constraints both below (the learning sub-system) and above (the training externality), but its opportunities don’t say who acts on the externality.</p>
+  </div>
+  <div>
+    <h3>Tracking from Weeks 2–3</h3>
+    <ul>
+      <li><em>Picking one opportunity.</em> Only Construction names one, in the speaker notes, using the same prepared wording seen in Week 3 (“If asked which is most addressable, say 02”). Junior Jobs leans toward 03 in its notes. Grid and Curriculum have no pick, and Curriculum’s six cards are the largest menu so far.</li>
+      <li><em>Problems vs. solutions.</em> Construction and Curriculum state “problems, not solutions,” and Grid’s table has a “The problem” column. Junior Jobs’ opportunities drifted toward forecasts.</li>
+      <li><em>Corrective forces.</em> Junior Jobs’ rebound scenario is the first deck to raise a force against its own thesis, which is progress on the Week 2 “conveniently dark” critique.</li>
+      <li><em>Business-model thinking.</em> Still largely absent, which is expected. The closest to naming a payer are Construction’s WHO lines (owners, general contractors, insurers) and Grid (utilities). Both labor decks leave “who pays for training” open, which is worth revisiting at the portfolio review.</li>
+    </ul>
+  </div>
+  <div class="ta">
+    <h3>Submission notes (for TA)</h3>
+    <ul>
+      <li>4 of 4 decks received. None are flagged late in the filenames.</li>
+      <li>Team sizes are 5, 5, 4, and 3 (17 students).</li>
+      <li>week41 (Junior Jobs) lists no member names on any slide, a step back from Week 3. It was submitted under Owen Bartlett’s Canvas ID; the five names above are inferred from the roster and should be confirmed.</li>
+      <li>week44 (Curriculum) lists first names only and spells “Sahanna” (Sahana Raja on the roster).</li>
+      <li>week43 (Grid) has no speaker notes.</li>
+      <li>week41’s hiring-decline chart (slide 4) shows bars labeled 1–4 with no category names; the notes explain the numbers, but the slide alone does not.</li>
+      <li>week44’s notes describe a different chart (share of A grades) from the one on the slide (median GPA, 1950–2025).</li>
+      <li>Last week’s folder issue is resolved: the Scenario Analysis decks now sit in Week 3 Domain Presentation.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ PICKS ============ -->
+<h2 class="section-label" id="picks">Questions picked for class <span class="aside">saved in this browser only</span></h2>
+<div class="picks">
+  <div id="picks-list"><p class="picks-empty">No questions picked yet. Tick “Ask” on 2–3 questions per team and they collect here as a one-page list for class.</p></div>
+  <div class="picks-bar"><button class="btn" id="clear-picks" type="button" disabled>Clear picks</button></div>
+</div>
+
+<footer>
+  <span>Compiled from slide text and speaker notes of the four decks in Week 4 Domain Presentation (week41–week44), plus the image-only hierarchy in week43 and the charts in week41 and week44. Other text in images was not read.</span>
+  <span>Format: <a href="https://curriculum-redesign.vercel.app/" target="_blank" rel="noopener">Faculty Briefing template</a></span>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var KEY = 'csie-fall26-faculty-briefing-week4-nested-hierarchies-picks';
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.q input[type="checkbox"]'));
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+
+  boxes.forEach(function (box) {
+    if (saved[box.id]) box.checked = true;
+    box.addEventListener('change', function () { persist(); render(); });
+  });
+
+  document.getElementById('clear-picks').addEventListener('click', function () {
+    boxes.forEach(function (b) { b.checked = false; });
+    persist(); render();
+  });
+
+  function persist() {
+    var state = {};
+    boxes.forEach(function (b) { if (b.checked) state[b.id] = true; });
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable: picks last for this visit only */ }
+  }
+
+  function render() {
+    var list = document.getElementById('picks-list');
+    var total = 0;
+    list.innerHTML = '';
+    document.querySelectorAll('section.team').forEach(function (sec) {
+      var team = sec.getAttribute('data-team');
+      var qs = Array.prototype.slice.call(sec.querySelectorAll('.q'));
+      var picked = qs.filter(function (q) { return q.querySelector('input').checked; });
+      qs.forEach(function (q) { q.classList.toggle('picked', q.querySelector('input').checked); });
+
+      var n = picked.length;
+      total += n;
+      var counter = sec.querySelector('[data-counter]');
+      counter.textContent = n + ' picked';
+      counter.classList.toggle('enough', n >= 2 && n <= 3);
+      counter.classList.toggle('over', n > 3);
+      var glance = document.querySelector('[data-glance="' + team + '"]');
+      if (glance) glance.textContent = n + ' of ' + qs.length;
+
+      if (n) {
+        var wrap = document.createElement('div');
+        wrap.className = 'picks-team';
+        var h = document.createElement('h3');
+        h.textContent = sec.getAttribute('data-name');
+        wrap.appendChild(h);
+        var ol = document.createElement('ol');
+        picked.forEach(function (q) {
+          var li = document.createElement('li');
+          var tag = document.createElement('strong');
+          tag.textContent = q.querySelector('.q-tag').childNodes[0].textContent.trim() + ' ';
+          li.appendChild(tag);
+          li.appendChild(document.createTextNode(q.querySelector('.q-quote').textContent));
+          ol.appendChild(li);
+        });
+        wrap.appendChild(ol);
+        list.appendChild(wrap);
+      }
+    });
+    if (!total) {
+      var p = document.createElement('p');
+      p.className = 'picks-empty';
+      p.textContent = 'No questions picked yet. Tick “Ask” on 2–3 questions per team and they collect here as a one-page list for class.';
+      list.appendChild(p);
+    }
+    document.getElementById('clear-picks').disabled = !total;
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
