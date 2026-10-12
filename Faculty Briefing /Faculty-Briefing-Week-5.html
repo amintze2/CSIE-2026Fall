@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 5 Faculty Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #FAFAF7;
+    --warm: #F5F2ED;
+    --surface: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-2: #45413B;
+    --muted: #6B6760;
+    --faint: #9C978E;
+    --border: #E0DDD6;
+    --red: #A63D2F;
+    --blue: #2C6BA6;
+    --green: #2D6B4A;
+    --ok-bg: #E3F1E8;
+    --ok-ink: #1F5A3B;
+    --late-bg: #F7E1DC;
+    --late-ink: #8A2F22;
+    --note-bg: #FBF3D9;
+    --note-ink: #6E5605;
+    --focus: #2C6BA6;
+    --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #141311;
+      --warm: #1E1C19;
+      --surface: #1A1917;
+      --ink: #EDEAE4;
+      --ink-2: #CFCAC1;
+      --muted: #A39E95;
+      --faint: #78736B;
+      --border: #35322D;
+      --red: #D98272;
+      --blue: #79A9DA;
+      --green: #74BF96;
+      --ok-bg: #1D3326;
+      --ok-ink: #9BD8B4;
+      --late-bg: #3A221D;
+      --late-ink: #F0A899;
+      --note-bg: #332B13;
+      --note-ink: #E6CD7A;
+      --focus: #79A9DA;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #141311;
+    --warm: #1E1C19;
+    --surface: #1A1917;
+    --ink: #EDEAE4;
+    --ink-2: #CFCAC1;
+    --muted: #A39E95;
+    --faint: #78736B;
+    --border: #35322D;
+    --red: #D98272;
+    --blue: #79A9DA;
+    --green: #74BF96;
+    --ok-bg: #1D3326;
+    --ok-ink: #9BD8B4;
+    --late-bg: #3A221D;
+    --late-ink: #F0A899;
+    --note-bg: #332B13;
+    --note-ink: #E6CD7A;
+    --focus: #79A9DA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; font-size: 15px; }
+  a { color: var(--blue); text-underline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  .page { max-width: 1100px; margin: 0 auto; padding-inline: 32px; padding-block: 0 80px; }
+  @media (max-width: 800px) { .page { padding-inline: 16px; padding-block: 0 56px; } }
+
+  /* Header */
+  .masthead { padding-block: 40px 22px; border-bottom: 4px solid var(--red); display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px 32px; }
+  .course { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .masthead h1 { font-family: var(--serif); font-size: clamp(30px, 5vw, 44px); font-weight: 900; letter-spacing: -0.5px; line-height: 1.1; margin-top: 6px; text-wrap: balance; }
+  .masthead .subtitle { font-size: 14px; color: var(--muted); margin-top: 6px; }
+  .masthead .meta { font-family: var(--mono); font-size: 12px; color: var(--muted); text-align: right; line-height: 1.8; font-variant-numeric: tabular-nums; }
+  .masthead .meta strong { color: var(--ink); font-weight: 700; }
+  @media (max-width: 640px) { .masthead .meta { text-align: left; } }
+
+  .private { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12px; color: var(--late-ink); background: var(--late-bg); padding: 8px 14px; margin-top: 20px; }
+  .private strong { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+  .calibration { background: var(--warm); border-left: 4px solid var(--blue); padding: 14px 18px; margin-top: 16px; font-size: 14px; color: var(--ink-2); max-width: 78ch; }
+
+  /* Section labels */
+  .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--red); margin: 44px 0 14px; padding-bottom: 6px; border-bottom: 2px solid var(--red); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .section-label .aside { font-family: var(--mono); font-weight: 500; letter-spacing: 1px; color: var(--muted); text-transform: none; font-size: 12px; }
+
+  /* Glance table */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
+  th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); padding: 9px 12px; border-bottom: 2px solid var(--ink); background: var(--warm); white-space: nowrap; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td a { font-weight: 600; color: var(--ink); }
+  td .deck { display: block; font-family: var(--mono); font-size: 11px; color: var(--faint); font-weight: 400; }
+  .none { color: var(--faint); }
+
+  /* Pills */
+  .pill { display: inline-block; font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; white-space: nowrap; }
+  .pill.ok { background: var(--ok-bg); color: var(--ok-ink); }
+  .pill.late { background: var(--late-bg); color: var(--late-ink); }
+  .pill.note { background: var(--note-bg); color: var(--note-ink); }
+
+  /* Team sections */
+  .team { margin-top: 48px; background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--ink); scroll-margin-top: 16px; }
+  .team-head { padding: 20px 24px 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px 20px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .team-head h2 { font-family: var(--serif); font-size: clamp(24px, 3.4vw, 30px); font-weight: 900; line-height: 1.15; letter-spacing: -0.3px; margin-top: 4px; text-wrap: balance; }
+  .team-body { padding: 20px 24px 24px; display: grid; gap: 24px; }
+  @media (max-width: 640px) { .team-head, .team-body { padding-inline: 16px; } }
+
+  .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--border); background: var(--warm); }
+  .facts > div { padding: 10px 14px; border-right: 1px solid var(--border); }
+  .facts > div:last-child { border-right: none; }
+  .facts dt { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .facts dd { font-size: 13px; color: var(--ink); margin-top: 3px; }
+  @media (max-width: 900px) {
+    .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .facts > div:nth-child(2) { border-right: none; }
+    .facts > div:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+  }
+  @media (max-width: 520px) {
+    .facts { grid-template-columns: 1fr; }
+    .facts > div { border-right: none; border-bottom: 1px solid var(--border); }
+    .facts > div:last-child { border-bottom: none; }
+  }
+
+  .block-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--ink); margin-bottom: 8px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .block-label.green { color: var(--green); }
+  .block-label.red { color: var(--red); }
+  .block-label .aside { font-weight: 500; letter-spacing: 1px; text-transform: none; color: var(--muted); font-size: 12px; }
+  .summary p { max-width: 78ch; color: var(--ink-2); }
+
+  .sw { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 28px; }
+  @media (max-width: 800px) { .sw { grid-template-columns: 1fr; } }
+  .sw .col { display: grid; gap: 14px; align-content: start; }
+  .point { padding-left: 14px; border-left: 2px solid var(--border); }
+  .strengths .point { border-left-color: var(--green); }
+  .weaknesses .point { border-left-color: var(--red); }
+  .point h4 { font-size: 14px; font-weight: 700; line-height: 1.4; color: var(--ink); }
+  .point p { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+
+  /* Questions */
+  .questions { list-style: none; display: grid; gap: 10px; counter-reset: q; }
+  .q { display: grid; grid-template-columns: 28px 1fr auto; gap: 4px 12px; align-items: start; padding: 14px 16px; background: var(--warm); border: 1px solid var(--border); counter-increment: q; }
+  .q::before { content: counter(q); font-family: var(--mono); font-weight: 700; font-size: 15px; color: var(--red); line-height: 1.5; }
+  .q.picked { border-color: var(--green); box-shadow: inset 3px 0 0 var(--green); }
+  .q-tag { font-size: 14px; font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .q-quote { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--ink); margin-top: 6px; max-width: 70ch; }
+  .q-hint { font-size: 13px; color: var(--muted); margin-top: 6px; max-width: 75ch; }
+  .ask { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); cursor: pointer; padding: 4px 8px; border: 1px solid var(--border); background: var(--surface); user-select: none; white-space: nowrap; }
+  .ask input { width: 15px; height: 15px; accent-color: var(--green); cursor: pointer; }
+  .q.picked .ask { color: var(--ok-ink); border-color: var(--green); }
+  @media (max-width: 560px) {
+    .q { grid-template-columns: 22px 1fr; }
+    .q .ask { grid-column: 2; justify-self: start; margin-top: 6px; }
+  }
+  .counter { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 2px 8px; border-radius: 2px; background: var(--warm); color: var(--muted); border: 1px solid var(--border); }
+  .counter.enough { background: var(--ok-bg); color: var(--ok-ink); border-color: transparent; }
+  .counter.over { background: var(--note-bg); color: var(--note-ink); border-color: transparent; }
+
+  /* Cross-student */
+  .xs { display: grid; gap: 14px; }
+  .xcard { background: var(--surface); border: 1px solid var(--border); padding: 18px 22px; }
+  .xcard h3 { font-size: 15px; font-weight: 700; line-height: 1.4; }
+  .xcard p { font-size: 14px; color: var(--ink-2); margin-top: 6px; max-width: 80ch; }
+  .xcard.feature { border-top: 3px solid var(--red); }
+  .versus { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; margin-top: 14px; align-items: stretch; }
+  .side { background: var(--warm); border: 1px solid var(--border); padding: 14px 16px; }
+  .side .who { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .side .stance { font-family: var(--serif); font-size: 19px; font-weight: 900; line-height: 1.25; margin-top: 4px; }
+  .side p { font-size: 13.5px; margin-top: 6px; }
+  .vs { align-self: center; font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: 1.5px; color: var(--red); }
+  @media (max-width: 700px) { .versus { grid-template-columns: 1fr; } .vs { justify-self: center; } }
+  .recommend { margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--ink); padding: 10px 14px; background: var(--note-bg); }
+  .tag { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--ink-2); background: var(--warm); border: 1px solid var(--border); padding: 1px 7px; border-radius: 2px; margin: 1px 2px 1px 0; white-space: nowrap; }
+  .clusters { list-style: none; display: grid; gap: 10px; margin-top: 10px; }
+  .clusters li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; }
+  .clusters .cname { font-weight: 700; margin-right: 6px; }
+  .clusters .plus { color: var(--red); font-weight: 700; }
+
+  /* Design notes */
+  .notes { display: grid; gap: 16px; }
+  .notes p, .notes li { font-size: 14px; color: var(--ink-2); max-width: 80ch; }
+  .notes h3 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+  .notes ul { padding-left: 18px; display: grid; gap: 8px; }
+  .notes li em { font-style: normal; font-weight: 600; color: var(--ink); }
+  .ta { background: var(--warm); border: 1px solid var(--border); padding: 16px 20px; }
+
+  /* Picks */
+  .picks { background: var(--surface); border: 1px solid var(--border); padding: 18px 22px; }
+  .picks-empty { font-size: 14px; color: var(--muted); }
+  .picks-team + .picks-team { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .picks-team h3 { font-family: var(--serif); font-size: 18px; font-weight: 900; }
+  .picks-team ol { margin-top: 6px; padding-left: 20px; display: grid; gap: 6px; }
+  .picks-team li { font-size: 14px; color: var(--ink-2); }
+  .picks-team li strong { color: var(--ink); }
+  .picks-bar { display: flex; justify-content: flex-end; margin-top: 12px; }
+  .btn { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ink); background: var(--warm); border: 1px solid var(--border); padding: 7px 12px; cursor: pointer; }
+  .btn:hover { border-color: var(--ink); }
+  .btn[disabled] { opacity: 0.5; cursor: default; border-color: var(--border); }
+
+  footer { margin-top: 56px; padding-top: 16px; border-top: 3px solid var(--ink); display: flex; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; font-size: 11px; color: var(--faint); text-transform: uppercase; letter-spacing: 1px; }
+  footer a { color: var(--muted); }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+  @media print {
+    body { background: #fff; color: #000; font-size: 12px; }
+    .page { max-width: none; padding-inline: 0; }
+    .ask, .picks-bar, .counter { display: none !important; }
+    .team, .xcard, .q, .point, .side { break-inside: avoid; }
+    .team { border: 1px solid #ccc; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="masthead">
+  <div>
+    <div class="course">Computer Science Innovation and Entrepreneurship · EN.660.410.01.FA26</div>
+    <h1>Faculty Briefing, Week 5</h1>
+    <div class="subtitle">Domain presentations · Ill-Defined Problems · Communication · one card per team</div>
+  </div>
+  <div class="meta">
+    <strong>Fall 2026</strong> · Week 5<br>
+    4 of 4 decks · <strong>1 late</strong><br>
+    Prepared Oct 12, 2026
+  </div>
+</header>
+
+<div class="private"><strong>Private</strong> Faculty and TA only. Not for distribution to students.</div>
+
+<p class="calibration">Monday-morning briefing generated from the four Week 5 domain decks. All four teams worked in the same domain, Communication, and applied the Ill-Defined Problems method: start from a broad trend, use the Macro Changes (PEST) worksheet to find what is changing and what is being destroyed, and narrow the space until a problem is specific enough to work on. Calibrated for the opportunity-scanning phase (Weeks 2–10): the weaknesses below are about framing quality, abstraction level, how far the problem was narrowed, and assumption awareness, not evidence or market proof. Validation scrutiny is for Weeks 12–14.</p>
+
+<h2 class="section-label">At a glance <span class="aside">tick “Ask” on 2–3 questions per team</span></h2>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Team</th><th>Members</th><th>Submitted</th><th>Strongest pick</th><th>Questions picked</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="#signal">When No One Writes</a><span class="deck">week51</span></td>
+        <td>Owen + ? <span class="pill note">Not listed</span></td>
+        <td><span class="pill ok">On time</span></td>
+        <td class="none">None (notes rank Gap 2, Gap 4)</td>
+        <td class="num" data-glance="signal">0 of 4</td>
+      </tr>
+      <tr>
+        <td><a href="#feed">The Feed Is the Newsroom</a><span class="deck">week52</span></td>
+        <td>Evan + ? <span class="pill note">Not listed</span></td>
+        <td><span class="pill late">Late</span> <span class="pill note">No notes</span></td>
+        <td>1 · The receipts layer (on slide)</td>
+        <td class="num" data-glance="feed">0 of 4</td>
+      </tr>
+      <tr>
+        <td><a href="#manytoone">Many-to-One Communication</a><span class="deck">week53</span></td>
+        <td>Flora, Michael, Jason, Yash</td>
+        <td><span class="pill ok">On time</span></td>
+        <td class="none">None</td>
+        <td class="num" data-glance="manytoone">0 of 4</td>
+      </tr>
+      <tr>
+        <td><a href="#m2m">Machine-to-Machine Communication</a><span class="deck">week54</span></td>
+        <td>Jonathan, Sophia, Penn, Sylvia</td>
+        <td><span class="pill ok">On time</span> <span class="pill note">No notes</span></td>
+        <td>Gap 2 · What did my agent agree to? (implicit)</td>
+        <td class="num" data-glance="m2m">0 of 4</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============ TEAM 1 ============ -->
+<section class="team" id="signal" data-team="signal" data-name="When No One Writes">
+  <div class="team-head">
+    <div>
+      <div class="eyebrow">week51 · Ill-Defined Problems</div>
+      <h2>When No One Writes</h2>
+    </div>
+    <span class="pill ok">On time</span>
+  </div>
+  <div class="team-body">
+    <dl class="facts">
+      <div><dt>Team</dt><dd>Not listed on any slide. Submitted under Owen Bartlett’s Canvas ID; other members cannot be inferred because teams were reshuffled (confirm)</dd></div>
+      <div><dt>Domain</dt><dd>Communication, with AI-mediated corporate communication as the trend</dd></div>
+      <div><dt>Methodology</dt><dd>Ill-Defined Problems (framed with Rittel &amp; Webber’s wicked-problem criteria rather than the PEST worksheet)</dd></div>
+      <div><dt>Submitted</dt><dd>Week 5 deck (week51), on time. Speaker notes on slides 1, 3, and 6 only</dd></div>
+    </dl>
+
+    <div class="summary">
+      <h3 class="block-label">Summary</h3>
+      <p>Team took the shift from AI that helps people write to agents that write and read for them: 75% of knowledge workers use generative AI at work (Microsoft &amp; LinkedIn 2024), Gartner forecasts agentic AI in 33% of enterprise software apps and 15% of day-to-day work decisions by 2028, and 40% of U.S. desk workers received AI “workslop” in the past month at a cost of about two hours each (HBR 2025). The problem statement is that the cues people use to judge a message (the effort behind it, the sender’s intent, and who is accountable for it) are dissolving. The deck argues the problem is ill-defined using four of Rittel &amp; Webber’s criteria: no agreed formulation, conflicting stakeholders, no stopping rule, and fixes that shift the problem. The mechanism slide draws on costly signaling (Spence 1973), the “replicant effect” (Jakesch et al. 2019), and smart-reply research (Hohenstein et al. 2023), and concludes that AI makes messages look better while making them mean less, with the cost moving to the reader. A tensions slide sets out four trade-offs (sender vs. reader, disclosure vs. trust, delegation vs. accountability, efficiency vs. capability). Five gaps follow: provenance and authorship, a new signal for “this matters,” accountability for agent actions, the reader’s burden, and human judgment and relationships. The slide says these are “gaps to explore, not business proposals.” The notes rank Gap 2 as the most original and Gap 4 as having the strongest data.</p>
+    </div>
+
+    <div class="sw">
+      <div class="col strengths">
+        <h3 class="block-label green">Strengths</h3>
+        <div class="point">
+          <h4>A clear mechanism for why the problem exists.</h4>
+          <p>“A signal is credible when it is costly to send.” The team used Spence’s costly-signaling idea to explain why a well-written note used to carry meaning and why it no longer does once writing costs nothing. This gives the deck an explanation rather than only a trend, and it accounts for the workslop finding that about half of recipients came to see the sender as less capable and reliable.</p>
+        </div>
+        <div class="point">
+          <h4>Took the “ill-defined” part of the method seriously.</h4>
+          <p>The deck does not simply call the problem hard. It tests the problem against named criteria (no agreed formulation, no stopping rule, fixes that change the problem) and shows that the framing choice decides which solutions a team will see. This is the most explicit treatment of the method’s theory of the four decks.</p>
+        </div>
+        <div class="point">
+          <h4>The tensions slide shows why no single fix works.</h4>
+          <p>Each pairing (disclosure vs. trust, delegation vs. accountability) states what is lost on the other side, such as “Being transparent invites the AI penalty, and staying silent invites suspicion.” This is the kind of corrective thinking that was missing in Week 2.</p>
+        </div>
+      </div>
+      <div class="col weaknesses">
+        <h3 class="block-label red">Weaknesses</h3>
+        <div class="point">
+          <h4>The deck defines why the problem is ill-defined but does not narrow it.</h4>
+          <p>The method asks the team to move from an ill-defined problem toward a constrained one. The deck stops at the ill-defined statement and then lists five gaps, none of which names who has the problem or in what kind of message. The Feed Is the Newsroom deck’s three-step ladder (un-defined, ill-defined, constrained) is a useful comparison.</p>
+        </div>
+        <div class="point">
+          <h4>“No one writes, no one reads” rests on two different kinds of evidence.</h4>
+          <p>The evidence for the mechanism (workslop, the replicant effect, smart replies) is all about a human reading AI-written text. The “agents read for them” half rests on Gartner forecasts. Gap 4 (the reader’s burden), which the notes say has the strongest data, assumes a human reader, which sits uneasily with the title. The two halves may be different problems at different times.</p>
+        </div>
+        <div class="point">
+          <h4>Some evidence is transferred from settings the deck does not discuss.</h4>
+          <p>The replicant effect was measured on Airbnb host profiles, and the smart-reply study used pairs of participants in a research messaging app. Both are reasonable to cite, but the deck applies them to corporate communication without saying so. This is acceptable for scanning; the slide claims are broader than the sources.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="block-label">Suggested Questions <span class="aside">(pick 2–3)</span> <span class="counter" data-counter="signal">0 picked</span></h3>
+      <ol class="questions">
+        <li class="q">
+          <div>
+            <div class="q-tag">Test ownership of the mechanism.</div>
+            <p class="q-quote">“Walk us through why a carefully written note used to prove that the sender cared, and what changes when writing it costs nothing.”</p>
+            <p class="q-hint">If they own it, they’ll explain costly signaling in their own words and connect it to the workslop finding. If they don’t, they’ll repeat “AI makes messages look better while making them mean less.”</p>
+          </div>
+          <label class="ask" for="q-signal-1"><input type="checkbox" id="q-signal-1"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Reconcile the title with the data.</div>
+            <p class="q-quote">“Your title says no one reads, and Gap 4 says the reader carries the cost. Which of those is happening today, and who is that reader?”</p>
+            <p class="q-hint">Tests whether they see that their strongest evidence assumes a human reader. A strong answer separates the present problem from the forecast one.</p>
+          </div>
+          <label class="ask" for="q-signal-2"><input type="checkbox" id="q-signal-2"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Narrow the space.</div>
+            <p class="q-quote">“You’ve shown why this is ill-defined. Constrain it: which person, in which kind of message, has this problem first?”</p>
+            <p class="q-hint">The step the deck leaves out. A good answer picks a role and a message type, such as a manager reading AI-written status reports.</p>
+          </div>
+          <label class="ask" for="q-signal-3"><input type="checkbox" id="q-signal-3"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Test the “most original” pick. <span class="pill note">Use if team is strong</span></div>
+            <p class="q-quote">“Your notes call Gap 2 the most original. What did effort signal that an ‘urgent’ flag or a priority label couldn’t, and why hasn’t anything replaced it?”</p>
+            <p class="q-hint">Shows whether they understand why a cheap signal fails, which is the core of their own mechanism.</p>
+          </div>
+          <label class="ask" for="q-signal-4"><input type="checkbox" id="q-signal-4"> Ask</label>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM 2 ============ -->
+<section class="team" id="feed" data-team="feed" data-name="The Feed Is the Newsroom">
+  <div class="team-head">
+    <div>
+      <div class="eyebrow">week52 · Ill-Defined Problems · PEST</div>
+      <h2>The Feed Is the Newsroom</h2>
+    </div>
+    <span class="pill late">Late</span>
+  </div>
+  <div class="team-body">
+    <dl class="facts">
+      <div><dt>Team</dt><dd>“Team 2.” No names on any slide. Submitted under the Canvas ID used for week22, week34, and week42; Evan Batten is the only student on all three, so likely Evan’s ID (confirm)</dd></div>
+      <div><dt>Domain</dt><dd>Communication, with short-form political video as the trend</dd></div>
+      <div><dt>Methodology</dt><dd>Ill-Defined Problems with the Macro Changes (PEST) worksheet, Gibson’s “what is being destroyed,” and Weisberg’s constraining the space</dd></div>
+      <div><dt>Submitted</dt><dd>Week 5 deck (week52), LATE (filename flag). Cover, footer, and filename say “Week 4.” No speaker notes</dd></div>
+    </dl>
+
+    <div class="summary">
+      <h3 class="block-label">Summary</h3>
+      <p>Team opened with short-form video as a main channel for political news: the share of U.S. adults who regularly get news on TikTok rose from 3% in 2020 to 20% in 2025, and from 9% to 43% among adults under 30 (Pew). More Americans now get news from social and video (54%) than from TV (50%), trust in mass media is at a record low of 28% (Gallup), and 213 U.S. counties have no local news source (Medill). The PEST slide pairs each force with what is changing and what is being destroyed: traditional news as gatekeeper, integrity (creators are paid by engagement), real relationships and the local paper, and third-party fact-checking. The team then narrows in three steps, from “What is the future of communication?” to “How do people learn what is true when the feed is the newsroom?” to “How can adults under 30 tell if a political clip is accurate and complete?” They conclude that what is destroyed is context (source, date, and corrections), and cite Meta’s 2020 feed experiments (Science 2023) to argue echo chambers are not the core loss. Three opportunities are screened as real, important, and addressable: a receipts layer that links a clip to its original source (marked “Our pick”), a wire service selling verified clip kits to news creators, and funded local civic creators in news-desert counties.</p>
+    </div>
+
+    <div class="sw">
+      <div class="col strengths">
+        <h3 class="block-label green">Strengths</h3>
+        <div class="point">
+          <h4>The clearest use of this week’s narrowing step.</h4>
+          <p>The un-defined, ill-defined, and constrained boxes show the method on the slide, and the constrained question names who (adults under 30), what (a political clip), and the test (accurate and complete). This is the example to point to for the step from a broad trend to a workable problem.</p>
+        </div>
+        <div class="point">
+          <h4>Used evidence against its first idea to find the real loss.</h4>
+          <p>“Meta’s 2020 feed experiments barely moved polarization, so echo chambers are not the core loss.” The team set aside the obvious answer and named context as what is destroyed. The cover slide (clips tagged NO SOURCE, NO DATE, AI-MADE?) shows the same idea visually.</p>
+        </div>
+        <div class="point">
+          <h4>Named a pick on the slide and screened every option.</h4>
+          <p>Each opportunity carries real, important, and addressable lines, and each names a payer or a starting customer (a creator tool, a newsroom subscription, foundations and states). The pick appears on the slide rather than in prepared notes, as it did in Weeks 3–4, and this is the most business-model thinking so far, which is ahead of where the course expects it.</p>
+        </div>
+      </div>
+      <div class="col weaknesses">
+        <h3 class="block-label red">Weaknesses</h3>
+        <div class="point">
+          <h4>The opportunities are written as solutions.</h4>
+          <p>“One tap on any political clip opens the full original video.” “Newsrooms sell verified clip kits.” “Fund one trained short-form reporter per news-desert county.” The method asks for problems at this stage. The problems underneath (a clip loses its source, creators have no verified material, some counties have no coverage) are in the deck but not stated as the opportunity.</p>
+        </div>
+        <div class="point">
+          <h4>The pick’s adopter is not the person in the constrained question.</h4>
+          <p>The constrained problem belongs to the viewer, while the receipts layer “starts as a creator tool that adds a badge.” The clips on the cover (“They don’t want you to see this”) are the ones least likely to opt in, and the Economic row says creators are paid for engagement, so “bias pays.” The same incentive applies to Opp 2, which asks those creators to pay for verification. The “Addressable? Yes, with no platform permission” line also sits next to the note that platforms strip C2PA data on upload.</p>
+        </div>
+        <div class="point">
+          <h4>The disconfirming study may not reach short-form video.</h4>
+          <p>The Science 2023 experiments changed Facebook and Instagram feeds for adults over three months in 2020, before most of the TikTok growth on slide 2. Using it to rule out echo chambers is a reasonable move, but the Many-to-One deck reads the same study as unable to say much about young viewers. Opp 3 (local news deserts) also answers a different question from the constrained one.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="block-label">Suggested Questions <span class="aside">(pick 2–3)</span> <span class="counter" data-counter="feed">0 picked</span></h3>
+      <ol class="questions">
+        <li class="q">
+          <div>
+            <div class="q-tag">Test ownership of the narrowing.</div>
+            <p class="q-quote">“You started at ‘the future of communication’ and ended at ‘how can adults under 30 tell if a political clip is accurate and complete.’ What did you cut at each step, and why?”</p>
+            <p class="q-hint">With no speaker notes, this is the best check on ownership. A strong team will name the trends they set aside (the slide 2 worksheet lists five).</p>
+          </div>
+          <label class="ask" for="q-feed-1"><input type="checkbox" id="q-feed-1"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Test the incentive behind the pick.</div>
+            <p class="q-quote">“The clips on your cover are the ones that lose their source. Why would the creator who posted ‘They don’t want you to see this’ add a receipts badge?”</p>
+            <p class="q-hint">A strong answer either names who would adopt it first (and why that helps the viewer) or moves the problem to the viewer’s side.</p>
+          </div>
+          <label class="ask" for="q-feed-2"><input type="checkbox" id="q-feed-2"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Challenge the use of the Meta study.</div>
+            <p class="q-quote">“The feed experiments you cite were Facebook and Instagram, adults only, in 2020. What does that study tell you about under-30s on TikTok?”</p>
+            <p class="q-hint">Tests whether they read the study’s limits. The Many-to-One team made the opposite argument from the same paper, which makes this a good cross-team moment.</p>
+          </div>
+          <label class="ask" for="q-feed-3"><input type="checkbox" id="q-feed-3"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Find the problem under a solution. <span class="pill note">Use if time</span></div>
+            <p class="q-quote">“‘Fund one reporter per news-desert county’ is an answer. What is the problem, and is it the same problem as your constrained question?”</p>
+            <p class="q-hint">The same check used with the Week 3 Watchers and Week 4 Curriculum teams.</p>
+          </div>
+          <label class="ask" for="q-feed-4"><input type="checkbox" id="q-feed-4"> Ask</label>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM 3 ============ -->
+<section class="team" id="manytoone" data-team="manytoone" data-name="Many-to-One Communication">
+  <div class="team-head">
+    <div>
+      <div class="eyebrow">week53 · Ill-Defined Problems · PEST</div>
+      <h2>Many-to-One Communication</h2>
+    </div>
+    <span class="pill ok">On time</span>
+  </div>
+  <div class="team-body">
+    <dl class="facts">
+      <div><dt>Team</dt><dd>Flora Huang, Michael Squeri, Jason (Jingchen) Jiang, Yash Chadda</dd></div>
+      <div><dt>Domain</dt><dd>Communication, with the shift from one-to-one to many-to-one communication as the trend</dd></div>
+      <div><dt>Methodology</dt><dd>Ill-Defined Problems with the Macro Changes (PEST) worksheet and a systems diagram</dd></div>
+      <div><dt>Submitted</dt><dd>Week 5 deck (week53), on time</dd></div>
+    </dl>
+
+    <div class="summary">
+      <h3 class="block-label">Summary</h3>
+      <p>Team framed communication as having become many-to-one: thousands of senders compete for one person’s attention, and an algorithm decides which get through. Drawing on White’s 1950 gatekeeping theory, the notes argue that the gatekeeper has moved from a visible editor into feeds that optimize for engagement. Supply and demand are set side by side: 5.24 billion social media user identities (DataReportal), 54% of U.S. adults getting news from social and video, 47 seconds on one screen before switching (Gloria Mark), and about 275 workplace interruptions a day (Microsoft). The PEST slides give three data points per force and name what each force destroys. A systems diagram links the forces (T to S to E to P) with evidence for each link and places them at “the gate,” where an algorithm ranks messages for engagement rather than for the person. A full slide examines Guess et al. (Science 2023) and argues that it tested adults during an election, not how views form in late adolescence. Three opportunities follow, each with problem, who has it, what is being destroyed, and the discontinuity: the feed decides for you, what matters gets lost, and can’t tell what to trust. No pick is named.</p>
+    </div>
+
+    <div class="sw">
+      <div class="col strengths">
+        <h3 class="block-label green">Strengths</h3>
+        <div class="point">
+          <h4>The most careful handling of evidence so far.</h4>
+          <p>The notes limit their own claims: trust in media “began in the 1970s, before social media, so we do not claim social media caused it”; Kepios “counts user identities, not unique people”; and on the Science study, “Our position is not that the study is wrong; it answers a different question from ours.” The “What the evidence does and doesn’t show” slide engages the strongest counter-evidence directly.</p>
+        </div>
+        <div class="point">
+          <h4>The systems diagram connects the PEST forces.</h4>
+          <p>Most PEST work stays as four separate boxes. This deck shows how they reinforce each other, gives a source for each link, and marks a tension (the EU Digital Services Act requiring a non-profiled feed option). It then places the problem where the forces meet.</p>
+        </div>
+        <div class="point">
+          <h4>A precise discontinuity for Opportunity 01.</h4>
+          <p>“Feeds offer two settings, engagement-ranked or plain chronological; nothing lets users choose what the feed optimizes for.” This names a specific missing option rather than a general concern, and the notes frame 01 and 02 as the receiving and sending ends of the same channel.</p>
+        </div>
+      </div>
+      <div class="col weaknesses">
+        <h3 class="block-label red">Weaknesses</h3>
+        <div class="point">
+          <h4>The team’s own evidence complicates Opportunity 01.</h4>
+          <p>The Science study found that the chronological feed showed more political content and more content from untrustworthy sources. If the alternative to engagement ranking is not neutral, letting users pick what the feed optimizes for may not address Opp 03 (can’t tell what to trust). The teen argument also rests on what the study did not test, which is a reasonable gap to point out but is not yet evidence for an effect.</p>
+        </div>
+        <div class="point">
+          <h4>Opportunity 02 sits outside the gate the deck analyzed.</h4>
+          <p>The systems diagram is about engagement-ranked social feeds. A school’s or clinic’s message to a family usually arrives by text, email, or a portal, and the attention data for 02 (275 interruptions a day) is about workplace tools. The problem is real, but it is a different channel from the one the deck builds its case on.</p>
+        </div>
+        <div class="point">
+          <h4>“Nothing lets users choose” may be too strong.</h4>
+          <p>The deck itself cites the EU requirement for a non-profiled feed, and some platforms already let users pick among custom feeds (Bluesky’s feed directory, for example). This is not a request for market proof. Asking what happened where users were given the choice would sharpen the problem.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="block-label">Suggested Questions <span class="aside">(pick 2–3)</span> <span class="counter" data-counter="manytoone">0 picked</span></h3>
+      <ol class="questions">
+        <li class="q">
+          <div>
+            <div class="q-tag">Test ownership of the systems diagram.</div>
+            <p class="q-quote">“Walk us through your diagram. If you could break one link in the loop, which would it be, and why that one?”</p>
+            <p class="q-hint">If they own it, they’ll explain why the forces reinforce each other and pick a link with a reason. If they don’t, they’ll read the arrows.</p>
+          </div>
+          <label class="ask" for="q-manytoone-1"><input type="checkbox" id="q-manytoone-1"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Use their own evidence.</div>
+            <p class="q-quote">“Your study found the chronological feed showed more content from untrustworthy sources. If users could choose what their feed optimizes for, why would trust improve?”</p>
+            <p class="q-hint">Tests whether they see the tension between Opp 01 and Opp 03. A strong answer separates choosing the goal from removing ranking.</p>
+          </div>
+          <label class="ask" for="q-manytoone-2"><input type="checkbox" id="q-manytoone-2"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Locate Opportunity 02.</div>
+            <p class="q-quote">“A clinic’s reminder arrives by text, not through a ranked feed. Which gate is Opportunity 02 about?”</p>
+            <p class="q-hint">A good answer either connects it to the feed (messages that do pass through social platforms) or acknowledges it as a separate problem.</p>
+          </div>
+          <label class="ask" for="q-manytoone-3"><input type="checkbox" id="q-manytoone-3"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Look at where the choice exists. <span class="pill note">Use if team is strong</span></div>
+            <p class="q-quote">“The EU already requires a non-profiled feed option. What happened when people were given that choice?”</p>
+            <p class="q-hint">Moves the discussion from “no one offers this” toward what the existing option leaves out.</p>
+          </div>
+          <label class="ask" for="q-manytoone-4"><input type="checkbox" id="q-manytoone-4"> Ask</label>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM 4 ============ -->
+<section class="team" id="m2m" data-team="m2m" data-name="Machine-to-Machine Communication">
+  <div class="team-head">
+    <div>
+      <div class="eyebrow">week54 · Ill-Defined Problems · PEST</div>
+      <h2>Machine-to-Machine Communication</h2>
+    </div>
+    <span class="pill ok">On time</span>
+  </div>
+  <div class="team-body">
+    <dl class="facts">
+      <div><dt>Team</dt><dd>Jonathan Locala, Sophia Mai, Penn Riney, Sylvia Yam</dd></div>
+      <div><dt>Domain</dt><dd>Communication, with AI agents talking to other AI agents as the trend</dd></div>
+      <div><dt>Methodology</dt><dd>Ill-Defined Problems with the Macro Changes (PEST) worksheet, carried through to a well-defined problem</dd></div>
+      <div><dt>Submitted</dt><dd>Week 5 deck (week54), on time. Six slides, no speaker notes; sources as slide footnotes</dd></div>
+    </dl>
+
+    <div class="summary">
+      <h3 class="block-label">Summary</h3>
+      <p>Team opened with the scale of machine traffic: 51% of web traffic was automated in 2024 (Imperva), Gartner forecasts task-specific agents in 40% of enterprise apps by the end of 2026, and there are more than 10,000 public Model Context Protocol (MCP) servers. A timeline lists the open protocols for agent communication (MCP, Google’s Agent2Agent, and the Agent Payments Protocol, AP2). The team narrowed “communication” along two axes, who is talking (from human-to-human to agent-to-agent) and what is exchanged (from information to commitments such as purchases and bookings), to reach the ill-defined problem: “How can people trust what their AI agents say and agree to with other agents?” A four-row PEST table names what each force destroys (the screen where a person reads and decides; the click on “Buy” as proof of consent; the expectation that a conversation can be deleted; everyday practice at talking), and concludes that the forces meet at consent. Three gaps follow (who is this agent, what did my agent agree to, who still practices talking), each with problem, who has it, what is destroyed, and the discontinuity. The deck ends with a well-defined problem built on Gap 2 and a sketch of what they would build: a signed log of agent-to-agent messages, a model that turns it into a plain-language receipt, and an alert when a commitment exceeds what the person approved.</p>
+    </div>
+
+    <div class="sw">
+      <div class="col strengths">
+        <h3 class="block-label green">Strengths</h3>
+        <div class="point">
+          <h4>The only deck to complete the full narrowing arc.</h4>
+          <p>Two axes take “communication” to agent-to-agent commitments, then to an ill-defined question, then to a “How might we” with a who (a person whose agent commits for them) and a constraint (“without slowing the agent down”). The slide sequence shows each step.</p>
+        </div>
+        <div class="point">
+          <h4>One lens across the PEST forces.</h4>
+          <p>“Each force removes a point where a person used to check the conversation.” The destroyed column is specific (“The human click on ‘Buy’ as proof of consent”), and the convergence point, consent, follows from the rows rather than being asserted.</p>
+        </div>
+        <div class="point">
+          <h4>Discontinuities found by reading the protocols.</h4>
+          <p>“Protocols carry messages, not authority” and “AP2 records payments, not the terms agreed” are precise statements of what existing standards leave out. The team read what the protocols do closely enough to find the gap.</p>
+        </div>
+      </div>
+      <div class="col weaknesses">
+        <h3 class="block-label red">Weaknesses</h3>
+        <div class="point">
+          <h4>The well-defined problem moves straight into a build.</h4>
+          <p>Slide 6 specifies a recorder, a model, and an alert. That is early for this phase, and it skips the question of who has the problem today. Most of the agent-to-agent evidence is forecast (Gartner’s 40% is task-specific agents in enterprise apps, not consumer agents booking hotels), so the hotel example describes a problem expected to exist rather than one people report now.</p>
+        </div>
+        <div class="point">
+          <h4>The receipt overlaps with what AP2 is designed to record.</h4>
+          <p>AP2’s signed mandates are meant to capture what the user authorized, including conditions such as a price limit. The example receipt (“Within your $400 limit”) is close to that. The remaining gap may be narrower, such as terms like cancellation that a payment record does not hold, and naming it would sharpen the problem.</p>
+        </div>
+        <div class="point">
+          <h4>Gap 3 and the Social row rest on evidence about a different behavior.</h4>
+          <p>“72% of U.S. teens have used AI companions” is about teens talking with AI, while the gap is about agents taking over calls people learned from. The Political row also points the other way from the consent argument: a court order that keeps every log means a record exists, held by the provider rather than the person.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="block-label">Suggested Questions <span class="aside">(pick 2–3)</span> <span class="counter" data-counter="m2m">0 picked</span></h3>
+      <ol class="questions">
+        <li class="q">
+          <div>
+            <div class="q-tag">Test ownership of the key discontinuity.</div>
+            <p class="q-quote">“You say protocols carry messages, not authority. Explain what that means using your hotel booking example.”</p>
+            <p class="q-hint">With no speaker notes, this is the best check on ownership. A strong answer explains how the hotel’s agent knows your agent is allowed to commit.</p>
+          </div>
+          <label class="ask" for="q-m2m-1"><input type="checkbox" id="q-m2m-1"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Find the problem under the build.</div>
+            <p class="q-quote">“Take away the recorder and the model. What problem is left, stated without the solution, and who has it today?”</p>
+            <p class="q-hint">Pulls the deck back from architecture to the problem, and tests whether anyone has it now or only after the forecasts arrive.</p>
+          </div>
+          <label class="ask" for="q-m2m-2"><input type="checkbox" id="q-m2m-2"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Find the gap in AP2.</div>
+            <p class="q-quote">“AP2’s mandates already record what a user approved. What does a mandate miss that your receipt would catch?”</p>
+            <p class="q-hint">Separates “this category exists” from “this specific problem remains.”</p>
+          </div>
+          <label class="ask" for="q-m2m-3"><input type="checkbox" id="q-m2m-3"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Use their own Political row. <span class="pill note">Use if team is strong</span></div>
+            <p class="q-quote">“A court made OpenAI keep every log. If the record already exists, why doesn’t the person have the paper trail you describe?”</p>
+            <p class="q-hint">Moves the problem from “no record exists” to who holds the record and who can read it.</p>
+          </div>
+          <label class="ask" for="q-m2m-4"><input type="checkbox" id="q-m2m-4"> Ask</label>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CROSS-STUDENT ============ -->
+<h2 class="section-label">Cross-Student Intelligence</h2>
+<div class="xs">
+  <article class="xcard feature">
+    <h3>Same study, opposite readings.</h3>
+    <p>The Feed Is the Newsroom and Many-to-One both cite the Meta feed experiments published in Science in July 2023 (Guess et al.; the Feed Is the Newsroom deck also cites González-Bailón et al.), which changed users’ feeds around the 2020 election. Both moves are reasonable, and they lead to different opportunities.</p>
+    <div class="versus">
+      <div class="side">
+        <div class="who">The Feed Is the Newsroom</div>
+        <div class="stance">The null result rules out echo chambers.</div>
+        <p>The feed is not changing minds, so the real loss is context: a clip’s source, date, and corrections. The fix belongs on the clip.</p>
+      </div>
+      <div class="vs">VS</div>
+      <div class="side">
+        <div class="who">Many-to-One Communication</div>
+        <div class="stance">The null result is a limit of the study.</div>
+        <p>Adults only, three months, during an election, with following lists already shaped by ranked feeds. It cannot say how the feed shapes views while they form. The fix belongs in the feed.</p>
+      </div>
+    </div>
+    <p class="recommend">Recommend presenting these two back-to-back and asking the room what the study does and doesn’t show, and which reading each team’s opportunity depends on.</p>
+  </article>
+
+  <article class="xcard">
+    <h3>Two decks build “receipts,” and a third names the same gap.</h3>
+    <p><span class="tag">Feed Is the Newsroom · Opp 1</span> “The receipts layer” links a clip back to its source. <span class="tag">Machine-to-Machine</span> “A readable receipt for every agent agreement” records what an agent committed to. <span class="tag">When No One Writes · Gap 01, 03</span> names provenance and accountability for agent actions, and its tension “Who owns what two agents agreed to?” is the Machine-to-Machine deck’s whole problem. All three describe a lost link between a message and a person who stands behind it. Worth asking whether a receipt for a human-made clip and a receipt for a machine-made commitment are the same problem.</p>
+  </article>
+
+  <article class="xcard">
+    <h3>What matters, from both ends.</h3>
+    <p><span class="tag">When No One Writes · Gap 02</span> says nothing has replaced effort as a credible signal that a message matters, and <span class="tag">Gap 04</span> says the reader carries the cost of filtering. <span class="tag">Many-to-One · Opp 02</span> says senders such as schools and clinics cannot tell whether an important message landed. These are the same problem from the receiver’s and the sender’s side, and both decks use workplace attention data (workslop; 275 interruptions a day).</p>
+  </article>
+
+  <article class="xcard">
+    <h3>Practice that disappears when communication is delegated.</h3>
+    <p><span class="tag">When No One Writes · Gap 05</span> (“What if people never learn to write?”) and <span class="tag">Machine-to-Machine · Gap 3</span> (“Who still practices talking?”) both argue that handing communication to AI removes the practice through which people build judgment. This extends the Week 4 “Where experience gets made” cluster (Junior Jobs, Construction Opp 03, Curriculum) from work skills to communication skills.</p>
+  </article>
+
+  <article class="xcard">
+    <h3>Threads carried over from Weeks 2–4.</h3>
+    <p><span class="tag">Many-to-One</span> continues the Week 2 “Addictive and Opaque Social Media Algorithms” deck (Jason was on that team) and its regulatory thread. <span class="tag">Feed Is the Newsroom</span> returns to C2PA and provenance from the Week 2 AI-Generated Media deck. <span class="tag">Machine-to-Machine</span> continues the Week 3 AI agents thread (Cybersecurity) and the Week 3 Watchers question of who holds the record. AI and work remains the largest single thread: three of four decks this week involve AI writing, ranking, or acting for people.</p>
+  </article>
+
+  <article class="xcard">
+    <h3>Potential team-formation clusters <span class="aside" style="font-weight:500;color:var(--muted);font-size:13px;">for the Weeks 7–8 portfolio review</span></h3>
+    <ul class="clusters">
+      <li><span class="cname">Provenance and receipts</span> <span class="tag">Feed Is the Newsroom Opp 1</span> <span class="plus">+</span> <span class="tag">Machine-to-Machine receipt</span> <span class="plus">+</span> <span class="tag">When No One Writes Gap 01, 03</span> <span class="plus">+</span> <span class="tag">Week 2 AI-Generated Media</span></li>
+      <li><span class="cname">What matters gets through</span> <span class="tag">When No One Writes Gap 02, 04</span> <span class="plus">+</span> <span class="tag">Many-to-One Opp 02</span></li>
+      <li><span class="cname">Who decides what you see and whom to trust</span> <span class="tag">Many-to-One Opp 01, 03</span> <span class="plus">+</span> <span class="tag">Feed Is the Newsroom Opp 2, 3</span> <span class="plus">+</span> <span class="tag">Week 2 Social Media Algorithms</span></li>
+      <li><span class="cname">Where practice gets made</span> <span class="tag">When No One Writes Gap 05</span> <span class="plus">+</span> <span class="tag">Machine-to-Machine Gap 3</span> <span class="plus">+</span> <span class="tag">Week 4 “Where experience gets made”</span></li>
+    </ul>
+  </article>
+</div>
+
+<!-- ============ DESIGN NOTES ============ -->
+<h2 class="section-label">Briefing Design Notes</h2>
+<div class="notes">
+  <p>This briefing is calibrated for the opportunity-scanning phase (Weeks 2–10). The weaknesses above focus on framing quality, abstraction level, how far the problem was narrowed, and assumption awareness, not evidence or market proof. Validation-level scrutiny is for Weeks 12–14.</p>
+  <div>
+    <h3>Method pattern this week: how far did each team narrow?</h3>
+    <p>All four teams had the same domain, which makes the narrowing step easy to compare. When No One Writes explains why its problem is ill-defined and stops there. Many-to-One uses PEST and a systems diagram well and states three problems, but does not constrain to one. The Feed Is the Newsroom shows the un-defined, ill-defined, and constrained steps on one slide. Machine-to-Machine goes all the way to a well-defined “How might we” and then past it into a build. The Feed Is the Newsroom and Machine-to-Machine are the examples to point to for narrowing; Machine-to-Machine also shows the risk of moving into a solution once the problem is well-defined.</p>
+  </div>
+  <div>
+    <h3>“What is being destroyed” worked well this week</h3>
+    <p>The strongest uses were Feed Is the Newsroom (context, after ruling out echo chambers) and Machine-to-Machine (the click on “Buy” as proof of consent). Both name something specific that a person could check for, rather than a general loss such as trust.</p>
+  </div>
+  <div>
+    <h3>Tracking from Weeks 2–4</h3>
+    <ul>
+      <li><em>Picking one opportunity.</em> Feed Is the Newsroom puts “Our pick” on the slide itself, where Weeks 3–4 picks sat in speaker notes. Machine-to-Machine picks implicitly by building its well-defined problem on Gap 2. When No One Writes ranks two gaps in its notes with the prepared wording seen in Weeks 3–4 (“If asked to prioritize”). Many-to-One has no pick.</li>
+      <li><em>Problems vs. solutions.</em> When No One Writes (“gaps, not business proposals”) and Many-to-One state problems. Feed Is the Newsroom’s opportunities are written as solutions, and Machine-to-Machine moves to a build after a well-stated problem.</li>
+      <li><em>Corrective forces.</em> Continued progress from Week 4. Two teams engage the strongest counter-study in their area, and Many-to-One’s notes limit their own claims more carefully than any deck so far.</li>
+      <li><em>Business-model thinking.</em> Feed Is the Newsroom names a payer for every opportunity (creators, newsrooms, foundations and states). This is ahead of schedule and should not be pushed further yet, but it is worth noting for the portfolio review given the open “who pays” thread from Week 4.</li>
+    </ul>
+  </div>
+  <div class="ta">
+    <h3>Submission notes (for TA)</h3>
+    <ul>
+      <li>4 of 4 decks received. week52 (Feed Is the Newsroom) is flagged LATE in the filename.</li>
+      <li>week52 is labeled “Week 4” on the cover, in the footer (“Week 4, October 2026”), and in the filename, but was submitted in the Week 5 set. It identifies itself only as “Team 2.”</li>
+      <li>Teams were reshuffled this week, so Canvas IDs from earlier weeks identify only the submitter. Eight of 17 students are named on slides (week53 and week54). The remaining nine (Owen Bartlett, Daniel Sung, Sissi Lai, Steven Li, Evan Batten, Kendall Frederick, Sichen Deng, Sahana Raja, Kerry Wang) are split between week51 and week52; the split and team sizes need to be confirmed.</li>
+      <li>week51 lists no member names on any slide for the second week in a row (week41 also had none). It was submitted under Owen Bartlett’s Canvas ID.</li>
+      <li>week52 was submitted under the Canvas ID used for week22, week34, and week42; Evan Batten is the only student common to those three teams.</li>
+      <li>week53 lists first names only; “Jason” is Jingchen Jiang on the roster.</li>
+      <li>Speaker notes: week51 on three slides, week52 none, week53 on every content slide, week54 none.</li>
+      <li>week53’s notes say several sources are cited through news summaries (Axios, Al Jazeera, TV Tech, Allwork.Space) and should cite the original reports in the final submission.</li>
+      <li>week52’s slide 2 lists five macro trends from its worksheet, including “Machines talk to machines” (Agent2Agent), which is the trend the week54 team chose.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ PICKS ============ -->
+<h2 class="section-label" id="picks">Questions picked for class <span class="aside">saved in this browser only</span></h2>
+<div class="picks">
+  <div id="picks-list"><p class="picks-empty">No questions picked yet. Tick “Ask” on 2–3 questions per team and they collect here as a one-page list for class.</p></div>
+  <div class="picks-bar"><button class="btn" id="clear-picks" type="button" disabled>Clear picks</button></div>
+</div>
+
+<footer>
+  <span>Compiled from slide text and speaker notes of the four decks in Week 5 Domain Presentation (week51–week54), plus the chart in week52 and the rendered slides of all four decks. Other text in images was not read.</span>
+  <span>Format: <a href="https://curriculum-redesign.vercel.app/" target="_blank" rel="noopener">Faculty Briefing template</a></span>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var KEY = 'csie-fall26-faculty-briefing-week5-ill-defined-problems-picks';
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.q input[type="checkbox"]'));
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+
+  boxes.forEach(function (box) {
+    if (saved[box.id]) box.checked = true;
+    box.addEventListener('change', function () { persist(); render(); });
+  });
+
+  document.getElementById('clear-picks').addEventListener('click', function () {
+    boxes.forEach(function (b) { b.checked = false; });
+    persist(); render();
+  });
+
+  function persist() {
+    var state = {};
+    boxes.forEach(function (b) { if (b.checked) state[b.id] = true; });
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable: picks last for this visit only */ }
+  }
+
+  function render() {
+    var list = document.getElementById('picks-list');
+    var total = 0;
+    list.innerHTML = '';
+    document.querySelectorAll('section.team').forEach(function (sec) {
+      var team = sec.getAttribute('data-team');
+      var qs = Array.prototype.slice.call(sec.querySelectorAll('.q'));
+      var picked = qs.filter(function (q) { return q.querySelector('input').checked; });
+      qs.forEach(function (q) { q.classList.toggle('picked', q.querySelector('input').checked); });
+
+      var n = picked.length;
+      total += n;
+      var counter = sec.querySelector('[data-counter]');
+      counter.textContent = n + ' picked';
+      counter.classList.toggle('enough', n >= 2 && n <= 3);
+      counter.classList.toggle('over', n > 3);
+      var glance = document.querySelector('[data-glance="' + team + '"]');
+      if (glance) glance.textContent = n + ' of ' + qs.length;
+
+      if (n) {
+        var wrap = document.createElement('div');
+        wrap.className = 'picks-team';
+        var h = document.createElement('h3');
+        h.textContent = sec.getAttribute('data-name');
+        wrap.appendChild(h);
+        var ol = document.createElement('ol');
+        picked.forEach(function (q) {
+          var li = document.createElement('li');
+          var tag = document.createElement('strong');
+          tag.textContent = q.querySelector('.q-tag').childNodes[0].textContent.trim() + ' ';
+          li.appendChild(tag);
+          li.appendChild(document.createTextNode(q.querySelector('.q-quote').textContent));
+          ol.appendChild(li);
+        });
+        wrap.appendChild(ol);
+        list.appendChild(wrap);
+      }
+    });
+    if (!total) {
+      var p = document.createElement('p');
+      p.className = 'picks-empty';
+      p.textContent = 'No questions picked yet. Tick “Ask” on 2–3 questions per team and they collect here as a one-page list for class.';
+      list.appendChild(p);
+    }
+    document.getElementById('clear-picks').disabled = !total;
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
