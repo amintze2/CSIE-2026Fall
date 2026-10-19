@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 6 Faculty Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #FAFAF7;
+    --warm: #F5F2ED;
+    --surface: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-2: #45413B;
+    --muted: #6B6760;
+    --faint: #9C978E;
+    --border: #E0DDD6;
+    --red: #A63D2F;
+    --blue: #2C6BA6;
+    --green: #2D6B4A;
+    --ok-bg: #E3F1E8;
+    --ok-ink: #1F5A3B;
+    --late-bg: #F7E1DC;
+    --late-ink: #8A2F22;
+    --note-bg: #FBF3D9;
+    --note-ink: #6E5605;
+    --focus: #2C6BA6;
+    --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #141311;
+      --warm: #1E1C19;
+      --surface: #1A1917;
+      --ink: #EDEAE4;
+      --ink-2: #CFCAC1;
+      --muted: #A39E95;
+      --faint: #78736B;
+      --border: #35322D;
+      --red: #D98272;
+      --blue: #79A9DA;
+      --green: #74BF96;
+      --ok-bg: #1D3326;
+      --ok-ink: #9BD8B4;
+      --late-bg: #3A221D;
+      --late-ink: #F0A899;
+      --note-bg: #332B13;
+      --note-ink: #E6CD7A;
+      --focus: #79A9DA;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #141311;
+    --warm: #1E1C19;
+    --surface: #1A1917;
+    --ink: #EDEAE4;
+    --ink-2: #CFCAC1;
+    --muted: #A39E95;
+    --faint: #78736B;
+    --border: #35322D;
+    --red: #D98272;
+    --blue: #79A9DA;
+    --green: #74BF96;
+    --ok-bg: #1D3326;
+    --ok-ink: #9BD8B4;
+    --late-bg: #3A221D;
+    --late-ink: #F0A899;
+    --note-bg: #332B13;
+    --note-ink: #E6CD7A;
+    --focus: #79A9DA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; font-size: 15px; }
+  a { color: var(--blue); text-underline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  .page { max-width: 1100px; margin: 0 auto; padding-inline: 32px; padding-block: 0 80px; }
+  @media (max-width: 800px) { .page { padding-inline: 16px; padding-block: 0 56px; } }
+
+  /* Header */
+  .masthead { padding-block: 40px 22px; border-bottom: 4px solid var(--red); display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px 32px; }
+  .course { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .masthead h1 { font-family: var(--serif); font-size: clamp(30px, 5vw, 44px); font-weight: 900; letter-spacing: -0.5px; line-height: 1.1; margin-top: 6px; text-wrap: balance; }
+  .masthead .subtitle { font-size: 14px; color: var(--muted); margin-top: 6px; }
+  .masthead .meta { font-family: var(--mono); font-size: 12px; color: var(--muted); text-align: right; line-height: 1.8; font-variant-numeric: tabular-nums; }
+  .masthead .meta strong { color: var(--ink); font-weight: 700; }
+  @media (max-width: 640px) { .masthead .meta { text-align: left; } }
+
+  .private { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12px; color: var(--late-ink); background: var(--late-bg); padding: 8px 14px; margin-top: 20px; }
+  .private strong { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+  .calibration { background: var(--warm); border-left: 4px solid var(--blue); padding: 14px 18px; margin-top: 16px; font-size: 14px; color: var(--ink-2); max-width: 78ch; }
+
+  /* Section labels */
+  .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--red); margin: 44px 0 14px; padding-bottom: 6px; border-bottom: 2px solid var(--red); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .section-label .aside { font-family: var(--mono); font-weight: 500; letter-spacing: 1px; color: var(--muted); text-transform: none; font-size: 12px; }
+
+  /* Glance table */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
+  th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); padding: 9px 12px; border-bottom: 2px solid var(--ink); background: var(--warm); white-space: nowrap; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td a { font-weight: 600; color: var(--ink); }
+  td .deck { display: block; font-family: var(--mono); font-size: 11px; color: var(--faint); font-weight: 400; }
+  .none { color: var(--faint); }
+
+  /* Pills */
+  .pill { display: inline-block; font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; white-space: nowrap; }
+  .pill.ok { background: var(--ok-bg); color: var(--ok-ink); }
+  .pill.late { background: var(--late-bg); color: var(--late-ink); }
+  .pill.note { background: var(--note-bg); color: var(--note-ink); }
+
+  /* Team sections */
+  .team { margin-top: 48px; background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--ink); scroll-margin-top: 16px; }
+  .team-head { padding: 20px 24px 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px 20px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .team-head h2 { font-family: var(--serif); font-size: clamp(24px, 3.4vw, 30px); font-weight: 900; line-height: 1.15; letter-spacing: -0.3px; margin-top: 4px; text-wrap: balance; }
+  .team-body { padding: 20px 24px 24px; display: grid; gap: 24px; }
+  @media (max-width: 640px) { .team-head, .team-body { padding-inline: 16px; } }
+
+  .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--border); background: var(--warm); }
+  .facts > div { padding: 10px 14px; border-right: 1px solid var(--border); }
+  .facts > div:last-child { border-right: none; }
+  .facts dt { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .facts dd { font-size: 13px; color: var(--ink); margin-top: 3px; }
+  @media (max-width: 900px) {
+    .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .facts > div:nth-child(2) { border-right: none; }
+    .facts > div:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+  }
+  @media (max-width: 520px) {
+    .facts { grid-template-columns: 1fr; }
+    .facts > div { border-right: none; border-bottom: 1px solid var(--border); }
+    .facts > div:last-child { border-bottom: none; }
+  }
+
+  .block-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--ink); margin-bottom: 8px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .block-label.green { color: var(--green); }
+  .block-label.red { color: var(--red); }
+  .block-label .aside { font-weight: 500; letter-spacing: 1px; text-transform: none; color: var(--muted); font-size: 12px; }
+  .summary p { max-width: 78ch; color: var(--ink-2); }
+
+  .sw { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 28px; }
+  @media (max-width: 800px) { .sw { grid-template-columns: 1fr; } }
+  .sw .col { display: grid; gap: 14px; align-content: start; }
+  .point { padding-left: 14px; border-left: 2px solid var(--border); }
+  .strengths .point { border-left-color: var(--green); }
+  .weaknesses .point { border-left-color: var(--red); }
+  .point h4 { font-size: 14px; font-weight: 700; line-height: 1.4; color: var(--ink); }
+  .point p { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+
+  /* Questions */
+  .questions { list-style: none; display: grid; gap: 10px; counter-reset: q; }
+  .q { display: grid; grid-template-columns: 28px 1fr auto; gap: 4px 12px; align-items: start; padding: 14px 16px; background: var(--warm); border: 1px solid var(--border); counter-increment: q; }
+  .q::before { content: counter(q); font-family: var(--mono); font-weight: 700; font-size: 15px; color: var(--red); line-height: 1.5; }
+  .q.picked { border-color: var(--green); box-shadow: inset 3px 0 0 var(--green); }
+  .q-tag { font-size: 14px; font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .q-quote { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--ink); margin-top: 6px; max-width: 70ch; }
+  .q-hint { font-size: 13px; color: var(--muted); margin-top: 6px; max-width: 75ch; }
+  .ask { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); cursor: pointer; padding: 4px 8px; border: 1px solid var(--border); background: var(--surface); user-select: none; white-space: nowrap; }
+  .ask input { width: 15px; height: 15px; accent-color: var(--green); cursor: pointer; }
+  .q.picked .ask { color: var(--ok-ink); border-color: var(--green); }
+  @media (max-width: 560px) {
+    .q { grid-template-columns: 22px 1fr; }
+    .q .ask { grid-column: 2; justify-self: start; margin-top: 6px; }
+  }
+  .counter { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 2px 8px; border-radius: 2px; background: var(--warm); color: var(--muted); border: 1px solid var(--border); }
+  .counter.enough { background: var(--ok-bg); color: var(--ok-ink); border-color: transparent; }
+  .counter.over { background: var(--note-bg); color: var(--note-ink); border-color: transparent; }
+
+  /* Cross-student */
+  .xs { display: grid; gap: 14px; }
+  .xcard { background: var(--surface); border: 1px solid var(--border); padding: 18px 22px; }
+  .xcard h3 { font-size: 15px; font-weight: 700; line-height: 1.4; }
+  .xcard p { font-size: 14px; color: var(--ink-2); margin-top: 6px; max-width: 80ch; }
+  .xcard.feature { border-top: 3px solid var(--red); }
+  .versus { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; margin-top: 14px; align-items: stretch; }
+  .side { background: var(--warm); border: 1px solid var(--border); padding: 14px 16px; }
+  .side .who { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .side .stance { font-family: var(--serif); font-size: 19px; font-weight: 900; line-height: 1.25; margin-top: 4px; }
+  .side p { font-size: 13.5px; margin-top: 6px; }
+  .vs { align-self: center; font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: 1.5px; color: var(--red); }
+  @media (max-width: 700px) { .versus { grid-template-columns: 1fr; } .vs { justify-self: center; } }
+  .recommend { margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--ink); padding: 10px 14px; background: var(--note-bg); }
+  .tag { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--ink-2); background: var(--warm); border: 1px solid var(--border); padding: 1px 7px; border-radius: 2px; margin: 1px 2px 1px 0; white-space: nowrap; }
+  .clusters { list-style: none; display: grid; gap: 10px; margin-top: 10px; }
+  .clusters li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; }
+  .clusters .cname { font-weight: 700; margin-right: 6px; }
+  .clusters .plus { color: var(--red); font-weight: 700; }
+
+  /* Design notes */
+  .notes { display: grid; gap: 16px; }
+  .notes p, .notes li { font-size: 14px; color: var(--ink-2); max-width: 80ch; }
+  .notes h3 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+  .notes ul { padding-left: 18px; display: grid; gap: 8px; }
+  .notes li em { font-style: normal; font-weight: 600; color: var(--ink); }
+  .ta { background: var(--warm); border: 1px solid var(--border); padding: 16px 20px; }
+
+  /* Picks */
+  .picks { background: var(--surface); border: 1px solid var(--border); padding: 18px 22px; }
+  .picks-empty { font-size: 14px; color: var(--muted); }
+  .picks-team + .picks-team { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .picks-team h3 { font-family: var(--serif); font-size: 18px; font-weight: 900; }
+  .picks-team ol { margin-top: 6px; padding-left: 20px; display: grid; gap: 6px; }
+  .picks-team li { font-size: 14px; color: var(--ink-2); }
+  .picks-team li strong { color: var(--ink); }
+  .picks-bar { display: flex; justify-content: flex-end; margin-top: 12px; }
+  .btn { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ink); background: var(--warm); border: 1px solid var(--border); padding: 7px 12px; cursor: pointer; }
+  .btn:hover { border-color: var(--ink); }
+  .btn[disabled] { opacity: 0.5; cursor: default; border-color: var(--border); }
+
+  footer { margin-top: 56px; padding-top: 16px; border-top: 3px solid var(--ink); display: flex; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; font-size: 11px; color: var(--faint); text-transform: uppercase; letter-spacing: 1px; }
+  footer a { color: var(--muted); }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+  @media print {
+    body { background: #fff; color: #000; font-size: 12px; }
+    .page { max-width: none; padding-inline: 0; }
+    .ask, .picks-bar, .counter { display: none !important; }
+    .team, .xcard, .q, .point, .side { break-inside: avoid; }
+    .team { border: 1px solid #ccc; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="masthead">
+  <div>
+    <div class="course">Computer Science Innovation and Entrepreneurship · EN.660.410.01.FA26</div>
+    <h1>Faculty Briefing, Week 6</h1>
+    <div class="subtitle">Domain presentations · Jobs to Be Done · one card per team</div>
+  </div>
+  <div class="meta">
+    <strong>Fall 2026</strong> · Week 6<br>
+    3 of 4 decks · <strong>1 late</strong><br>
+    Prepared Oct 18, 2026
+  </div>
+</header>
+
+<div class="private"><strong>Private</strong> Faculty and TA only. Not for distribution to students.</div>
+
+<p class="calibration">Monday-morning briefing generated from the three Week 6 domain decks in the folder. All three teams applied Jobs to Be Done: separate the job from today’s solution, map how the job gets done step by step, rate each step on importance and satisfaction, and look for opportunities where importance is high and satisfaction is low. Calibrated for the opportunity-scanning phase (Weeks 2–10): the weaknesses below are about framing quality, abstraction level, how the job is separated from the solution, and assumption awareness, not evidence or market proof. Validation scrutiny is for Weeks 12–14.</p>
+
+<h2 class="section-label">At a glance <span class="aside">tick “Ask” on 2–3 questions per team</span></h2>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Team</th><th>Members</th><th>Submitted</th><th>Strongest pick</th><th>Questions picked</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="#edtech">Education Technology</a><span class="deck">week61</span></td>
+        <td>Flora, Steven, Sylvia, Penn, Yash</td>
+        <td><span class="pill ok">On time</span></td>
+        <td class="none">None</td>
+        <td class="num" data-glance="edtech">0 of 4</td>
+      </tr>
+      <tr>
+        <td><a href="#wearables">Wearable Health Tracking</a><span class="deck">week62</span></td>
+        <td>Kendall, Sissi, Owen, Evan</td>
+        <td><span class="pill ok">On time</span> <span class="pill note">Notes on 1 slide</span></td>
+        <td>01 · Clinical handoff (ranked by gap)</td>
+        <td class="num" data-glance="wearables">0 of 4</td>
+      </tr>
+      <tr>
+        <td><a href="#transport">Transport &amp; Mobility: Routing Algorithms</a><span class="deck">week64</span></td>
+        <td>Michael, Jingchen (“Jason”), Jonathan, Sichen</td>
+        <td><span class="pill late">Late</span></td>
+        <td>Curb and late-train cards marked primary</td>
+        <td class="num" data-glance="transport">0 of 4</td>
+      </tr>
+      <tr>
+        <td><span class="none">Fourth team</span><span class="deck">week63</span></td>
+        <td class="none">Likely Daniel, Sophia, Kerry, Sahana (confirm)</td>
+        <td><span class="pill note">Not in folder</span></td>
+        <td class="none">--</td>
+        <td class="num none">--</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============ TEAM 1 ============ -->
+<section class="team" id="edtech" data-team="edtech" data-name="Education Technology">
+  <div class="team-head">
+    <div>
+      <div class="eyebrow">week61 · Jobs to Be Done</div>
+      <h2>Education Technology</h2>
+    </div>
+    <span class="pill ok">On time</span>
+  </div>
+  <div class="team-body">
+    <dl class="facts">
+      <div><dt>Team</dt><dd>Flora Huang, Steven Li, Sylvia Yam, Penn Riney, Yash Chadda (first names on the cover)</dd></div>
+      <div><dt>Domain</dt><dd>Education technology, with assigning, grading, and feedback as the chosen job</dd></div>
+      <div><dt>Methodology</dt><dd>Jobs to Be Done</dd></div>
+      <div><dt>Submitted</dt><dd>Week 6 deck (week61), on time</dd></div>
+    </dl>
+
+    <div class="summary">
+      <h3 class="block-label">Summary</h3>
+      <p>Team opened with the size of the grading burden: a median of 5 hours of a 54-hour teaching week goes to grading and feedback, 62% of teachers call grading one of the worst parts of the job and 95% take it home, and teachers who use AI tools weekly report saving about 6 hours a week. Slide 2 states the framing directly: “The job is stable but the tools are split across it,” with Canvas holding the assignment and gradebook, Gradescope the rubric and regrades, and Piazza or Slack the questions. Of three jobs (communication, assigning and grading, collaboration), they chose the second because it “touches every course and every student,” with the desired outcome that students can easily see how they’re doing. The job is mapped in eight steps across instructor, student, and both, rated 1 to 5 by the team. Three opportunities come from steps rated high importance and low satisfaction: make expectations clear the first time (step 3), one home for questions tied to the work (step 4), and fast, consistent grading with real feedback (step 7). No strongest pick is named.</p>
+    </div>
+
+    <div class="sw">
+      <div class="col strengths">
+        <h3 class="block-label green">Strengths</h3>
+        <div class="point">
+          <h4>Separated the job from the tools, in one line.</h4>
+          <p>“The job is stable but the tools are split across it.” Each of the three jobs on slide 3 is written apart from today’s tools, which are listed separately underneath. The slide also explains why the job feels badly served even though every step has a tool: the steps are split across three products.</p>
+        </div>
+        <div class="point">
+          <h4>The map crosses roles.</h4>
+          <p>The eight steps move between instructor, student, and both, so the map shows where the job passes from one person to the other. The lowest-rated steps sit on both sides: understanding the assignment (student, 5/2), deciding how to grade and grading (instructor, 4/2 and 5/2), and regrades (both, 3/2).</p>
+        </div>
+        <div class="point">
+          <h4>Each opportunity traces back to a rated step.</h4>
+          <p>Every card names its step, gives today’s pain in one line, and then the opportunity. The notes tie the grading card to the desired outcome. This is the structure the method asks for.</p>
+        </div>
+      </div>
+      <div class="col weaknesses">
+        <h3 class="block-label red">Weaknesses</h3>
+        <div class="point">
+          <h4>The chosen job is close to a description of today’s tools.</h4>
+          <p>“Teachers need to assign work to students, then provide feedback and grades” names the activities Canvas and Gradescope already perform. The desired outcome (“students can easily see how they’re doing”) is the student’s, while the job is written for the teacher. A job one level up, such as knowing whether students are learning and helping them improve, would test whether grades are the right output at all. As written, Opp 3’s “live standing for students” meets the outcome without asking that question.</p>
+        </div>
+        <div class="point">
+          <h4>The opportunities overlap features the slide already lists.</h4>
+          <p>Slide 2 names Gradescope as the tool for rubric grading and regrade requests, and a shared rubric with a comment bank is part of what it offers today. Questions pinned to an assignment are also common in course forums. This is not a request for market proof. The team’s own framing points somewhere sharper: if the tools are split across the job, the gap may be between the tools rather than inside any one of them.</p>
+        </div>
+        <div class="point">
+          <h4>The opportunities don’t follow the team’s own ratings.</h4>
+          <p>Step 6 (decide how to grade, importance 4, satisfaction 2) is not carried forward, while step 4 (do it and ask questions, 4/3) is. The ratings are the team’s estimates, and a student team is rating instructor satisfaction on steps 6 and 7 without saying how. Slide 2 also opens with AI saving teachers about 6 hours a week, and AI does not appear again in the map or the opportunities.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="block-label">Suggested Questions <span class="aside">(pick 2–3)</span> <span class="counter" data-counter="edtech">0 picked</span></h3>
+      <ol class="questions">
+        <li class="q">
+          <div>
+            <div class="q-tag">Test ownership of the framing.</div>
+            <p class="q-quote">“Your slide says the job is stable but the tools are split across it. Where in your eight steps does that split cause the most trouble, and how do you know?”</p>
+            <p class="q-hint">If they own it, they’ll name a specific handoff (a question asked in Piazza about an assignment posted in Canvas and graded in Gradescope). If they don’t, they’ll restate the tool list.</p>
+          </div>
+          <label class="ask" for="q-edtech-1"><input type="checkbox" id="q-edtech-1"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Move the job up one level.</div>
+            <p class="q-quote">“If grades didn’t exist, what would a teacher still be trying to get done in this job?”</p>
+            <p class="q-hint">Tests whether the team can separate the job from the activity. A strong answer arrives at something like “know who is learning and help them improve,” and then asks whether live standing serves that.</p>
+          </div>
+          <label class="ask" for="q-edtech-2"><input type="checkbox" id="q-edtech-2"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Check who did the rating.</div>
+            <p class="q-quote">“You rated the teacher’s satisfaction with deciding how to grade and with grading at 2. How did you arrive at a teacher’s ratings, and why did step 6 drop out of your opportunities?”</p>
+            <p class="q-hint">Tests assumption awareness, not evidence. A good answer says the ratings are estimates and names who they would ask first.</p>
+          </div>
+          <label class="ask" for="q-edtech-3"><input type="checkbox" id="q-edtech-3"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Find the gap. <span class="pill note">Use if strong</span></div>
+            <p class="q-quote">“Gradescope already offers rubrics, reusable comments, and regrade requests. What still goes wrong for a TA grading a few hundred submissions?”</p>
+            <p class="q-hint">Separates “a tool exists” from “this specific problem remains,” the same check used with the Week 4 Grid team.</p>
+          </div>
+          <label class="ask" for="q-edtech-4"><input type="checkbox" id="q-edtech-4"> Ask</label>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM 2 ============ -->
+<section class="team" id="wearables" data-team="wearables" data-name="Wearable Health Tracking">
+  <div class="team-head">
+    <div>
+      <div class="eyebrow">week62 · Jobs to Be Done · User Processes</div>
+      <h2>Wearable Health Tracking</h2>
+    </div>
+    <span class="pill ok">On time</span>
+  </div>
+  <div class="team-body">
+    <dl class="facts">
+      <div><dt>Team</dt><dd>Kendall Frederick, Sissi Lai, Owen Bartlett, Evan Batten (the cover lists “Owen” and “Evan” without surnames)</dd></div>
+      <div><dt>Domain</dt><dd>Wearable health tracking, with “Should I see a doctor?” as the mapped job</dd></div>
+      <div><dt>Methodology</dt><dd>Jobs to Be Done (user processes)</dd></div>
+      <div><dt>Submitted</dt><dd>Week 6 deck (week62), on time. Speaker notes on the opportunities slide only</dd></div>
+    </dl>
+
+    <div class="summary">
+      <h3 class="block-label">Summary</h3>
+      <p>Team opened with the market: $103B in wearable technology in 2026, projected to reach $231B by 2033; smart ring shipments up 53% while smartwatches dip 4%; and more than 5 million paid Oura members. The “what’s new” column names the FDA’s January 2026 wellness guidance, which lets wearables estimate blood pressure and glucose without clearance, and states that “interpretation, not sensors, is the new battleground.” Slide 3 gives three jobs: functional (when something feels off, get objective data to decide whether to see a doctor), emotional (feel reassured and in control each morning, without worry over one bad reading), and social (signal the right image for the setting). The functional job is mapped in eight steps from noticing a symptom to follow-up, with a gap column (importance minus satisfaction). The largest gaps are briefing the doctor (+4), interpreting and deciding the next step (+3 each), and capturing data (+2). Three opportunities are ranked by those gaps: clinical handoff, insight to action, and frictionless wear. A design constraint runs under all three: stay within FDA wellness guidance, surface patterns, and never diagnose.</p>
+    </div>
+
+    <div class="sw">
+      <div class="col strengths">
+        <h3 class="block-label green">Strengths</h3>
+        <div class="point">
+          <h4>Used all three kinds of job, and the social job is a real finding.</h4>
+          <p>A visible WHOOP strap signals “athlete” at practice, an Oura ring passes as jewelry at work, and people swap bands or take the device off. That observation feeds Opp 3, since a device taken off for social reasons captures no data when symptoms arrive. This is the only deck this week to use the emotional and social dimensions of the method.</p>
+        </div>
+        <div class="point">
+          <h4>The opportunities are ranked by the team’s own numbers.</h4>
+          <p>The gap column is computed for every step, and the notes order the opportunities by it: clinical handoff (+4), insight to action (+3, +3), frictionless wear (+2). The ranking follows from the analysis rather than from which idea sounds best, which is new for the class.</p>
+        </div>
+        <div class="point">
+          <h4>Treated regulation as a design constraint and checked its own figures.</h4>
+          <p>The notes contrast two paths through the FDA line (Apple sought clearance for hypertension notifications; WHOOP launched a wellness feature and received a warning letter), and every opportunity is written to stay on the wellness side. The notes also warn against the “90% of health spending” figure, which PolitiFact rated False, and label the ratings as hypotheses to validate with interviews.</p>
+        </div>
+      </div>
+      <div class="col weaknesses">
+        <h3 class="block-label red">Weaknesses</h3>
+        <div class="point">
+          <h4>The largest gap belongs to someone else’s job.</h4>
+          <p>Briefing the doctor scores satisfaction 1 because, in the deck’s words, “visits are short and clinicians rarely have tools to use wearable data.” The barrier described sits with the clinician: a 15-minute visit, data that isn’t in the medical record, and no one assigned to review it. The map follows only the patient. Opp 1 may need the clinician’s job mapped as well, since a one-page summary helps only if the doctor has a reason and the time to read it. This is the Week 4 pattern of a constraint that sits in an institution rather than a missing tool.</p>
+        </div>
+        <div class="point">
+          <h4>Opportunity 2 sits close to the line the team draws.</h4>
+          <p>“Outside your range for 3 nights” is a sensible threshold that answers the emotional job’s concern about one bad reading. Suggesting that the user raise it with a doctor, though, acts on the decide-next-step stage, which is the part of the job the FDA line governs, and WHOOP’s warning letter came for a wellness feature. The deck doesn’t say what the prompt can and cannot say, or how false alarms would affect the reassurance the emotional job asks for.</p>
+        </div>
+        <div class="point">
+          <h4>Opportunity 3 is where the market is already moving.</h4>
+          <p>The team’s own slide 2 shows smart rings growing 53% and Oura holding roughly three quarters of ring shipments, and charge-while-worn, discreet form factors are what that category sells. The deck links the 30% abandonment figure to charging and fit without showing why people abandon trackers; if they stop because the data stopped being useful, the fix is Opp 2 rather than hardware.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="block-label">Suggested Questions <span class="aside">(pick 2–3)</span> <span class="counter" data-counter="wearables">0 picked</span></h3>
+      <ol class="questions">
+        <li class="q">
+          <div>
+            <div class="q-tag">Test ownership of the largest gap.</div>
+            <p class="q-quote">“Briefing the doctor has your biggest gap. Why is satisfaction a 1 there, and is that the patient’s problem or the doctor’s?”</p>
+            <p class="q-hint">With notes only on the last slide, this is the best check on ownership. A strong answer describes the visit from both sides. A weak one restates “the visit is short.”</p>
+          </div>
+          <label class="ask" for="q-wearables-1"><input type="checkbox" id="q-wearables-1"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Map the other side of the handoff.</div>
+            <p class="q-quote">“Suppose a clinician gets your one-page summary tomorrow. What would they have to do with it, and what would make them ignore it?”</p>
+            <p class="q-hint">Moves the team toward the clinician’s job without asking for a solution. A good answer names time, liability, or whether the data belongs in the record.</p>
+          </div>
+          <label class="ask" for="q-wearables-2"><input type="checkbox" id="q-wearables-2"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Locate Opportunity 2 relative to the line.</div>
+            <p class="q-quote">“WHOOP received a warning letter for a wellness feature. What exactly does ‘suggest raising it with a doctor’ say that keeps Insight to Action on the wellness side?”</p>
+            <p class="q-hint">Tests whether the design constraint is understood or only stated.</p>
+          </div>
+          <label class="ask" for="q-wearables-3"><input type="checkbox" id="q-wearables-3"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Check the abandonment link. <span class="pill note">Use if time</span></div>
+            <p class="q-quote">“About 30% of trackers end up abandoned. Do people stop because of charging and fit, or because the data stopped being useful?”</p>
+            <p class="q-hint">A strong answer sees that the answer decides between Opp 3 and Opp 2.</p>
+          </div>
+          <label class="ask" for="q-wearables-4"><input type="checkbox" id="q-wearables-4"> Ask</label>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM 3 ============ -->
+<section class="team" id="transport" data-team="transport" data-name="Transport &amp; Mobility: Routing Algorithms">
+  <div class="team-head">
+    <div>
+      <div class="eyebrow">week64 · Jobs to Be Done</div>
+      <h2>Transport &amp; Mobility: Routing Algorithms</h2>
+    </div>
+    <span class="pill late">Late</span>
+  </div>
+  <div class="team-body">
+    <dl class="facts">
+      <div><dt>Team</dt><dd>Michael Squeri, Jingchen Jiang, Jonathan Locala, Sichen Deng (the cover lists “Team 4: Michael, Jason, Jonathan, Sichen”)</dd></div>
+      <div><dt>Domain</dt><dd>Transportation and mobility, with door-to-door travel as the job</dd></div>
+      <div><dt>Methodology</dt><dd>Jobs to Be Done</dd></div>
+      <div><dt>Submitted</dt><dd>Week 6 deck (week64), flagged LATE. Slide 3 ratings are dots only and were read from the slide</dd></div>
+    </dl>
+
+    <div class="summary">
+      <h3 class="block-label">Summary</h3>
+      <p>Team restated its job to take the solution out of it: the first phrasing, “transport with efficiency” with scooters and Google Maps, became getting from where I am to where I need to be with as little time, cost, and effort as possible, without excess emissions. Supporting data: 49 hours lost to congestion per US driver in 2025 (about $894 each, $85.8B nationally), an average transit wait of about 10 minutes, a five-minute transfer window that holds only about 80% of the time, and Google Maps used by 70% of US navigation-app users. A chart of average commute times (25 minutes driving alone, 45 by bus, 47 by subway, 69 by commuter rail) illustrates that the gap isn’t explained by vehicle speed. Seven door-to-door steps are rated, with gaps at waiting (importance 5, satisfaction 1 on the slide), transferring (4/1), and parking or returning the vehicle (4/2). The main finding, in the notes: “All three underserved steps sit between modes rather than inside one. Every current solution owns a single mode, so nobody owns the handoffs.” Four problem spaces follow: know the curb before you arrive, the train everyone knows is late, construction you can see coming, and routes that weigh more than time. The first two act on the rated gaps; the notes present the other two as supporting ideas.</p>
+    </div>
+
+    <div class="sw">
+      <div class="col strengths">
+        <h3 class="block-label green">Strengths</h3>
+        <div class="point">
+          <h4>Took the solution out of the job, and said so.</h4>
+          <p>“That phrasing had the solution inside it.” The team rewrote its own job statement and changed what it measures as a result: elapsed door-to-door time and predictability rather than vehicle speed, and footprint per person moved rather than per vehicle. This is the clearest use of the method’s first step in the three decks.</p>
+        </div>
+        <div class="point">
+          <h4>Found the week’s sharpest insight: nobody owns the handoffs.</h4>
+          <p>Waiting, transferring, and parking all happen between modes, and every current product (a map app, a transit agency, a scooter company) owns one mode. The commute chart supports it: a bus is not half as fast as a car, so the time is lost outside the ride. The finding explains why the steps stay underserved rather than only reporting that they are.</p>
+        </div>
+        <div class="point">
+          <h4>Ratings that discriminate, and careful with evidence.</h4>
+          <p>Boarding and paying rates well (importance 2, satisfaction 4), which the notes use to show the ratings aren’t uniformly negative. The notes caveat the parking-cruising figure as downtown-only, call the commute averages an illustration rather than a controlled comparison, and warn that routing around “unsafe” areas has been criticized as digital redlining, so safety should be defined by road-level evidence.</p>
+        </div>
+      </div>
+      <div class="col weaknesses">
+        <h3 class="block-label red">Weaknesses</h3>
+        <div class="point">
+          <h4>The handoff finding doesn’t carry into the opportunities.</h4>
+          <p>The closing line names the common fault as routing that “runs on what already happened, reports the scheduled world, stops at the address, and optimizes one number.” That is a description of the routing layer, and the deck’s title is “Routing Algorithms.” The job was cleaned of its solution on slide 3, and the solution returned on slide 4. Only the late-train card touches a transfer, and it tells riders a connection is unreliable rather than making the connection hold. None of the four says who would own a handoff.</p>
+        </div>
+        <div class="point">
+          <h4>Half of the cards act outside the rated gaps.</h4>
+          <p>The construction card acts “before you drive,” which the notes put outside the mapped scope (leaving the origin to arriving). The routes card acts on the ride step. On the slide’s dots, riding rates importance 5 and satisfaction 3, the same +2 gap as parking, yet parking is marked as a gap and riding is not. The rule for what counts as a gap isn’t stated.</p>
+        </div>
+        <div class="point">
+          <h4>Some claims are broader than the deck needs, and two standards already exist.</h4>
+          <p>“These simple algorithms have largely remained unchanged for decades” understates navigation apps that already use live and predicted traffic; the deck’s narrower point (they optimize one number) holds without it. The notes also report that the Curb Data Specification exists and that the Work Zone Data Exchange has fed navigation providers since 2020, with only 40 feeds active. That suggests the constraint is who publishes the data, which is an institutional question, not an algorithm.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="block-label">Suggested Questions <span class="aside">(pick 2–3)</span> <span class="counter" data-counter="transport">0 picked</span></h3>
+      <ol class="questions">
+        <li class="q">
+          <div>
+            <div class="q-tag">Test ownership of the key finding.</div>
+            <p class="q-quote">“You say nobody owns the handoffs. Who would have to own a transfer for it to hold, and why doesn’t anyone today?”</p>
+            <p class="q-hint">If they own it, they’ll talk about separate operators, schedules, and who pays when a connection fails. If they don’t, they’ll restate that the steps are between modes.</p>
+          </div>
+          <label class="ask" for="q-transport-1"><input type="checkbox" id="q-transport-1"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Connect the finding to the cards.</div>
+            <p class="q-quote">“Your main finding is about handoffs between modes. Which of your four cards would make a transfer more likely to hold, not just easier to predict?”</p>
+            <p class="q-hint">Tests whether the team sees that its opportunities moved back to the routing layer. A strong team will propose a handoff problem of its own.</p>
+          </div>
+          <label class="ask" for="q-transport-2"><input type="checkbox" id="q-transport-2"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">Find the constraint.</div>
+            <p class="q-quote">“The curb data standard and the work zone feed both already exist, and only 40 work zone feeds are active. Is the problem the routing algorithm, or who publishes the data?”</p>
+            <p class="q-hint">The same check the Week 4 Construction team made with Katerra: better tools, with the constraint one level up.</p>
+          </div>
+          <label class="ask" for="q-transport-3"><input type="checkbox" id="q-transport-3"> Ask</label>
+        </li>
+        <li class="q">
+          <div>
+            <div class="q-tag">State the gap rule. <span class="pill note">Use if strong</span></div>
+            <p class="q-quote">“On your slide, riding rates 5 and 3, the same gap as parking. Why is parking a gap and riding not?”</p>
+            <p class="q-hint">Checks whether the ratings decided the focus or the focus decided the ratings.</p>
+          </div>
+          <label class="ask" for="q-transport-4"><input type="checkbox" id="q-transport-4"> Ask</label>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CROSS-STUDENT ============ -->
+<h2 class="section-label">Cross-Student Intelligence</h2>
+<div class="xs">
+  <article class="xcard feature">
+    <h3>Three domains, one finding: the largest gap sits at a handoff nobody owns.</h3>
+    <p><span class="tag">EdTech</span> “The job is stable but the tools are split across it” (Canvas, Gradescope, Piazza). <span class="tag">Wearable</span> The largest gap (+4) is briefing the doctor, where the patient’s data has to cross to a clinician who has no tools for it. <span class="tag">Transport</span> All three underserved steps sit between modes, and “nobody owns the handoffs.” Each team mapped a different job and found its worst step at a boundary between tools, people, or operators. Transport improves information inside one tool (the routing app) and leaves the handoff unowned. The other two teams propose opposite fixes. This extends Week 4 Construction’s fragmented workflows (“no single party accountable for the outcome”) and Week 2 Smart Cities’ chain of custody at every handoff.</p>
+    <div class="versus">
+      <div class="side">
+        <div class="who">Education Technology</div>
+        <div class="stance">One home for the whole job.</div>
+        <p>Questions pinned to the task, one answer shared with all, and standing shown in one place.</p>
+      </div>
+      <div class="vs">VS</div>
+      <div class="side">
+        <div class="who">Wearable Health Tracking</div>
+        <div class="stance">A better handoff between parties.</div>
+        <p>A clinician-ready summary the patient carries across, with the doctor still deciding.</p>
+      </div>
+    </div>
+    <p class="recommend">Recommend presenting EdTech and Wearable back-to-back and asking the room: should the fix be one tool that owns the whole job, or a better handoff between parties that stay separate?</p>
+  </article>
+
+  <article class="xcard">
+    <h3>A live score can reassure or alarm.</h3>
+    <p><span class="tag">EdTech · Opp 3</span> proposes “live standing for students” as the way to meet its desired outcome. <span class="tag">Wearable</span> found that people checking readiness scores each morning want to feel reassured, “without worry over one bad reading,” and designed its pattern alerts around three nights rather than one. Worth asking the EdTech team the Wearable team’s question: what does a student feel when a live grade drops after one assignment?</p>
+  </article>
+
+  <article class="xcard">
+    <h3>Cheaper grading and what gets assigned.</h3>
+    <p><span class="tag">EdTech · Opp 3</span> (fast, consistent grading) meets <span class="tag">Week 4 Curriculum · what’s easy to grade gets taught</span>. If grading gets faster, the capacity could go to work that is harder to grade, or the same easy-to-grade work could simply get cheaper. Both decks describe the tools and grading load of courses like this one (Canvas, Gradescope, TAs). As in Week 4, treat it as useful input and keep the questions open rather than defensive.</p>
+  </article>
+
+  <article class="xcard">
+    <h3>Threads carried over from Weeks 1–5, often by the same students.</h3>
+    <p><span class="tag">Transport · know the curb</span> and Week 2 Smart Cities’ logistics real-estate exchange (pricing curb space); Jonathan and Sichen were on that team. <span class="tag">Transport · routes that weigh more than time</span> and Week 2 Social Media’s user-set feed goals (let people say what to optimize); Jingchen was on that team. <span class="tag">Wearable · insight to action</span> and Week 1 Accessibility’s confidence-gated AAC (act only once confidence clears a threshold); Kendall and Sissi were on that team. <span class="tag">Transport · construction you can see coming</span> and Week 4’s institutional constraint (the data standard exists, few agencies publish to it). From Week 5: <span class="tag">Transport · routes that weigh more than time</span> also continues Many-to-One’s “the feed decides for you” (Jingchen and Michael were on that team), and <span class="tag">EdTech · make expectations clear</span> is the classroom version of Many-to-One’s “what matters gets lost,” where a sender can’t tell whether an important message landed (Flora and Yash were on that team). The EdTech team is the Week 1 Travel team (Sylvia, Steven, Flora, Yash) plus Penn.</p>
+  </article>
+
+  <article class="xcard">
+    <h3>Potential team-formation clusters <span class="aside" style="font-weight:500;color:var(--muted);font-size:13px;">for the Weeks 7–8 portfolio review</span></h3>
+    <ul class="clusters">
+      <li><span class="cname">Handoffs nobody owns</span> <span class="tag">EdTech Opp 2</span> <span class="plus">+</span> <span class="tag">Wearable Opp 1</span> <span class="plus">+</span> <span class="tag">Transport: train everyone knows is late</span> <span class="plus">+</span> <span class="tag">Week 4 Construction Opp 02</span></li>
+      <li><span class="cname">Let the user say what to optimize</span> <span class="tag">Transport: routes that weigh more than time</span> <span class="plus">+</span> <span class="tag">Wearable Opp 2</span> <span class="plus">+</span> <span class="tag">Week 2 Social Media: user-set feed goals</span></li>
+      <li><span class="cname">Public data nobody publishes</span> <span class="tag">Transport: know the curb, construction you can see coming</span> <span class="plus">+</span> <span class="tag">Week 4 Grid: last-mile visibility</span> <span class="plus">+</span> <span class="tag">Week 1 Travel: readability layer</span></li>
+    </ul>
+  </article>
+</div>
+
+<!-- ============ DESIGN NOTES ============ -->
+<h2 class="section-label">Briefing Design Notes</h2>
+<div class="notes">
+  <p>This briefing is calibrated for the opportunity-scanning phase (Weeks 2–10). The weaknesses above focus on framing quality, abstraction level, how the job is separated from the solution, and assumption awareness, not evidence or market proof. Validation-level scrutiny is for Weeks 12–14.</p>
+  <div>
+    <h3>Method pattern this week: does the opportunity serve the job, or today’s tool?</h3>
+    <p>All three teams mapped a job and rated its steps, and the common gap is the step from the map back to the opportunity. Transport is the example to point to for separating the job from the solution, and it says so, although its title and its four cards return to the routing layer. Wearable is the example for following its own ratings: the opportunities are ranked by the computed gap. EdTech’s job statement stays close to what today’s tools perform, and its choice of steps doesn’t follow its ratings. All three use the team’s own estimates for the ratings, which is acceptable for scanning; only Wearable labels them as hypotheses to check.</p>
+  </div>
+  <div>
+    <h3>Tracking from Weeks 2–5</h3>
+    <ul>
+      <li><em>Picking one opportunity.</em> Wearable ranks all three by gap, with clinical handoff first, which is the first ranking in the class derived from the method’s own numbers. Transport separates two primary cards from two supporting ones. EdTech has no pick.</li>
+      <li><em>Problems vs. solutions.</em> Transport calls its cards “problem spaces, not product pitches,” and Wearable separates Problem from Idea. EdTech’s cards end in feature lists (“Rubric with a comment bank”).</li>
+      <li><em>Corrective forces.</em> Wearable’s regulatory line (the WHOOP warning letter) and Transport’s digital-redlining caution and permit-date caveat are both forces the teams raised against their own ideas. EdTech raises none.</li>
+      <li><em>Business-model thinking.</em> Lighter than Week 5, where the Feed Is the Newsroom team named a payer for every opportunity, and still expected at this stage. Wearable’s $2.2 trillion is the size of the problem, not a payer. Who pays for the clinician’s time, and who pays a city to publish its curb rules, are both open and worth revisiting at the portfolio review.</li>
+    </ul>
+  </div>
+  <div class="ta">
+    <h3>Submission notes (for TA)</h3>
+    <ul>
+      <li>3 of 4 decks are in the folder. week63 is missing. The four students not named on any Week 6 deck are Daniel Sung, Sophia Mai, Kerry Wang, and Sahana Raja, most likely the fourth team (confirm).</li>
+      <li>week64 (Transport) is flagged LATE in the filename.</li>
+      <li>Team sizes are 5, 4, and 4 (13 students).</li>
+      <li>week61 (EdTech) lists first names only. week62 (Wearable) lists “Owen” and “Evan” without surnames. week64 (Transport) lists “Jason,” who is Jingchen Jiang on the roster.</li>
+      <li>week64’s ratings on slide 3 are dots with no numbers. For waiting, the slide shows satisfaction 1 while the notes say 2.</li>
+      <li>week64 slide 2’s “80%” card (“How often a 5 minute transfer window actually takes 5 minutes”) is hard to read without the notes, which explain that a five-minute window holds about 80% of the time.</li>
+      <li>week61 has speaker notes on slides 1, 3, and 5 only; week62 has notes on slide 5 only.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ PICKS ============ -->
+<h2 class="section-label" id="picks">Questions picked for class <span class="aside">saved in this browser only</span></h2>
+<div class="picks">
+  <div id="picks-list"><p class="picks-empty">No questions picked yet. Tick “Ask” on 2–3 questions per team and they collect here as a one-page list for class.</p></div>
+  <div class="picks-bar"><button class="btn" id="clear-picks" type="button" disabled>Clear picks</button></div>
+</div>
+
+<footer>
+  <span>Compiled from slide text and speaker notes of the three decks in Week 6 Domain Presentation (week61, week62, week64), plus the commute-time chart and the rating dots in week64. Other text in images was not read.</span>
+  <span>Format: <a href="https://curriculum-redesign.vercel.app/" target="_blank" rel="noopener">Faculty Briefing template</a></span>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var KEY = 'csie-fall26-faculty-briefing-week6-jobs-to-be-done-picks';
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.q input[type="checkbox"]'));
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+
+  boxes.forEach(function (box) {
+    if (saved[box.id]) box.checked = true;
+    box.addEventListener('change', function () { persist(); render(); });
+  });
+
+  document.getElementById('clear-picks').addEventListener('click', function () {
+    boxes.forEach(function (b) { b.checked = false; });
+    persist(); render();
+  });
+
+  function persist() {
+    var state = {};
+    boxes.forEach(function (b) { if (b.checked) state[b.id] = true; });
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable: picks last for this visit only */ }
+  }
+
+  function render() {
+    var list = document.getElementById('picks-list');
+    var total = 0;
+    list.innerHTML = '';
+    document.querySelectorAll('section.team').forEach(function (sec) {
+      var team = sec.getAttribute('data-team');
+      var qs = Array.prototype.slice.call(sec.querySelectorAll('.q'));
+      var picked = qs.filter(function (q) { return q.querySelector('input').checked; });
+      qs.forEach(function (q) { q.classList.toggle('picked', q.querySelector('input').checked); });
+
+      var n = picked.length;
+      total += n;
+      var counter = sec.querySelector('[data-counter]');
+      counter.textContent = n + ' picked';
+      counter.classList.toggle('enough', n >= 2 && n <= 3);
+      counter.classList.toggle('over', n > 3);
+      var glance = document.querySelector('[data-glance="' + team + '"]');
+      if (glance) glance.textContent = n + ' of ' + qs.length;
+
+      if (n) {
+        var wrap = document.createElement('div');
+        wrap.className = 'picks-team';
+        var h = document.createElement('h3');
+        h.textContent = sec.getAttribute('data-name');
+        wrap.appendChild(h);
+        var ol = document.createElement('ol');
+        picked.forEach(function (q) {
+          var li = document.createElement('li');
+          var tag = document.createElement('strong');
+          tag.textContent = q.querySelector('.q-tag').childNodes[0].textContent.trim() + ' ';
+          li.appendChild(tag);
+          li.appendChild(document.createTextNode(q.querySelector('.q-quote').textContent));
+          ol.appendChild(li);
+        });
+        wrap.appendChild(ol);
+        list.appendChild(wrap);
+      }
+    });
+    if (!total) {
+      var p = document.createElement('p');
+      p.className = 'picks-empty';
+      p.textContent = 'No questions picked yet. Tick “Ask” on 2–3 questions per team and they collect here as a one-page list for class.';
+      list.appendChild(p);
+    }
+    document.getElementById('clear-picks').disabled = !total;
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
